@@ -1,0 +1,10 @@
+services:
+  jekyll:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ${PWD}:/srv/jekyll
+    ports:
+      - "${JEKYLL_PORT}:4000"
+    command: jekyll serve --watch --force_polling --verbose

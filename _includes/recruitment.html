@@ -1,0 +1,31 @@
+<div class="recruitment is-flex is-justify-content-space-around py-5 my-3">
+    <a href="{{ recruitment.ex-url }}">
+        <div class="media">
+            <div class="columns is-vcentered">
+                <div class="column">
+                    <figure class="media-left">
+                        <p class="image is-96x96 mb-0">
+                            {% if recruitment.thumbnail %}
+                            <img src="{{ recruitment.thumbnail | prepend: site.baseurl }}" alt="{{ recruitment.name }}">
+                            {% else %}
+                            <span class="iconify image is-96x96 has-text-black"
+                                data-icon="material-symbols:person-search" />
+                            {% endif %}
+                        </p>
+                    </figure>
+                </div>
+                <div class="column is-two-thirds">
+                    <div class="media-content">
+                        <p class="title is-5">{{ recruitment.title }}</p>
+                        <p class="subtitle is-6 mb-3">{{ recruitment.subtitle }}</p>
+                    </div>
+                    <div class="media-content">
+                        <button class="button is-info" href="{{ recruitment.ex-url }}">
+                            募集要項 (外部サイト) を見る
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

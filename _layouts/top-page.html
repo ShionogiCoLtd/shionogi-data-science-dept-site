@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<h1>
+    We are Shionogi Data Science Department
+</h1>
+
+{% include aboutus-banner.html %}
+
+
+<div class="content">
+    {{ content }}
+</div>
+
+<div class="columns is-multiline">
+    {% assign post_width = "6|6|6|6|6|6" | split: "|" %}
+    {% for post in paginator.posts limit:6 %}
+    <div class="column is-{{ post_width[forloop.index0] }}">
+        {% include post-item.html %}
+    </div>
+    {% endfor %}
+
+    <div class="column is-12">
+        {% include pagination.html %}
+    </div>
+</div>
