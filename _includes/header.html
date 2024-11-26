@@ -1,0 +1,18 @@
+<section class="
+    {% if page.is_hero %}
+        hero-header
+    {% else %}
+        normal-header
+    {% endif %}
+    is-bold" {% if page.title=='About Us' %}
+    style="background: linear-gradient(to right, white 0%, white 50%, transparent 100%), url('{{ page.image | prepend: site.baseurl }}') no-repeat center right; background-size: auto 50vh;"
+    {% elsif page.image %}
+    style="background: url('{{ page.image | prepend: site.baseurl }}') no-repeat center center; background-size: cover;"
+    {% endif %}>
+    <div class="{% if page.is_hero %} hero-header-body {% else %} normal-header-body {% endif %}">
+        <div class="container">
+            <p class="title has-text-white is-size-3 is-size-2-tablet is-size-1-desktop">{{ page.title }}</p>
+            <p class="subtitle has-text-white is-5 is-size-4-tablet is-size-3-desktop">{{ page.subtitle }}</p>
+        </div>
+    </div>
+</section>

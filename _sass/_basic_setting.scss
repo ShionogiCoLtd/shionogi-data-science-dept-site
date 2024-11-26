@@ -1,0 +1,33 @@
+// Fonts
+$family-sans-serif: "Segoe UI", BlinkMacSystemFont, -apple-system, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", "Meiryo UI", sans-serif !default;
+$family-primary: $family-sans-serif;
+$family-secondary: $family-sans-serif;
+$title-family: $family-secondary;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $family-secondary;
+}
+
+//Cards
+$card-shadow: none;
+$card-footer-border-top: none;
+$card-background-color: $light;
+
+// Pagination
+$pagination-focus-border-color: $dark;
+$pagination-current-color: $white;
+$pagination-current-background-color: $dark;
+$pagination-current-border-color: $dark;
+
+// Radius
+// $radius: 0;
+// $radius-large: 0;
+// $radius-small: 0;
+
+// Navbar setting
+$navbar-height: 3.5rem;

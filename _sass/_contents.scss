@@ -1,0 +1,74 @@
+.content {
+    line-height: 175%;
+
+    body {
+        font-size: 115%;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        border-left-width: 0.8rem;
+        border-left-style: solid;
+    }
+
+    h1 {
+        border-left-color: $red-a;
+        padding-left: 0.8rem;
+    }
+
+    h2 {
+        border-left-color: $red-b;
+        padding-left: 0.8rem;
+    }
+
+    h3 {
+        border-left-color: $red-c;
+        padding-left: 1.6rem;
+    }
+
+    h4 {
+        border-left-color: $blue-b;
+        padding-left: 2.4rem;
+    }
+
+    h5 {
+        border-left-color: $green-b;
+        padding-left: 3.2rem;
+    }
+
+    h6 {
+        border-left-color: $gray-b;
+        padding-left: 4.0rem;
+    }
+
+    p {
+        margin-bottom: 2em;
+    }
+
+    ul ul {
+        margin-top: 0.5em;
+    }
+
+    ol ol {
+        margin-top: 0.5em;
+    }
+
+    table {
+        margin-top: 1em;
+        margin-bottom: 1em;
+
+        thead th {
+            font-weight: normal;
+            border-color: $red-a;
+            border-bottom-width: 1px;
+        }
+
+        tbody td {
+            border-color: $gray-b;
+        }
+    }
+}

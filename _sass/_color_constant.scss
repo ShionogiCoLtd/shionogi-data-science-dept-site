@@ -1,0 +1,61 @@
+// Color constant
+
+
+$dark: rgb(65, 65, 65);
+$light: rgb(239, 239, 239);
+$white: #ffffff;
+
+// SHIONOGI gray
+$gray-a: rgb(113, 113, 113);
+$gray-b: rgb(192, 192, 192);
+$gray-c: rgb(239, 239, 239);
+
+// SHIONOGI red expanded
+$red-a: rgb(216, 12, 36);
+$red-b: rgb(247, 94, 113);
+$red-c: rgb(249, 147, 159);
+$red-y: rgb(162, 9, 28);
+$red-z: rgb(106, 6, 19);
+
+// SHIONOGI blue expanded
+$blue-a: rgb(101, 170, 221);
+$blue-b: rgb(187, 212, 239);
+$blue-c: rgb(223, 234, 248);
+$blue-y: rgb(44, 133, 199);
+$blue-z: rgb(30, 88, 132);
+
+// SHIONOGI green expanded
+$green-a: rgb(105, 189, 131);
+$green-b: rgb(190, 223, 194);
+$green-c: rgb(224, 240, 226);
+$green-y: rgb(67, 152, 92);
+$green-z: rgb(45, 102, 62);
+
+// SHIONOGI yellow expanded
+$yellow-a: rgb(252, 212, 117);
+$yellow-b: rgb(254, 235, 190);
+$yellow-c: rgb(255, 245, 224);
+$yellow-y: rgb(250, 183, 27);
+$yellow-z: rgb(181, 128, 4);
+
+// SHIONOGI pink expanded
+$pink-a: rgb(238, 134, 154);
+$pink-b: rgb(247, 200, 206);
+$pink-c: rgb(252, 229, 232);
+$pink-y: rgb(226, 52, 87);
+$pink-z: rgb(163, 22, 50);
+
+// SHIONOGI purple expanded
+$purple-a: rgb(166, 116, 176);
+$purple-b: rgb(209, 186, 218);
+$purple-c: rgb(232, 222, 237);
+$purple-y: rgb(128, 79, 138);
+$purple-z: rgb(85, 52, 92);
+
+// default colors
+$primary: $red-a;
+$info: $blue-y;
+$success: $green-y;
+$warning: $yellow-y;
+$danger: $pink-y;
+$link: $blue-y;
