@@ -109,7 +109,15 @@ defaults:
     values:
       layout: "default"
       thumbnail: /img/face.svg
+  -
+    scope:
+      path: ""
+      type: "events"
+    values:
+      image: /img/spirit-red.png
 
 collections:
   recruitments:
+    output: true
+  events:
     output: true

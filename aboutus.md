@@ -19,14 +19,66 @@ DX推進本部は、デジタル技術を用いたヘルスケアソリューシ
 
 ![Data Seicnece Department](img/aboutus/ds-dept.png)
 
-## 社外発表実績
+## 社外発表実績（臨床研究を除くデータサイエンス関連のトピック） 
 
-### 2024年度（予定含む）
+### 2025年度(予定含む) 
+
+#### 受賞 
+
+##### デジタルトランスフォーメーション銘柄2025 
+- DX注目企業2025への選定： 塩野義製薬全体の取り組みが選定理由（3年連続） 
+
+##### SAS Customer Recognition Awards 2025
+- Community Uplift： 2nd place winnerを受賞
+
+#### 学会発表・講演　 
+
+##### Pharma IT 2025 
+
+- 『生成AIを活用したSHIONOGIでの価値創出 – 規制文書作成業務効率化の事例紹介』 
+
+##### SAS Innovate 2025 Orlando 
+
+- 『Overcoming Challenges in RWE Generation: The AI-SAS for RWE Approach』 
+
+##### 2025年度 人工知能学会全国大会（第39回） 
+
+- 『量子アニーリングを用いた時間窓制約付き運搬経路問題（VRPTW）の求解による医薬情報担当者の施設訪問計画の最適化』 
+- 『塩野義製薬でのAI活用事例と体制』 
+- 『SHIONOGIのデータサイエンス部の活動内容ご紹介』 
+
+##### AWS Summit Japan 2025 
+
+- 『SHIONOGI における生成 AI 活用～全社的な道筋と医薬開発領域での事例紹介～』 
+
+##### Interphex Week Tokyo 2025 
+
+- 『塩野義製薬のデータサイエンス戦略とは』 
+
+### 2024年度
+#### 受賞
+
+##### デジタルトランスフォーメーション銘柄2024 
+
+- DX注目企業2024への選定
+
+##### SAS Customer Recognition Awards 2024
+- Innovative Problem Solver： 1st place winnerを日本企業として初めて受賞（グローバル47企業がエントリー） 
+
+##### Japan Data Drivers Awards 
+
+- Data Drivers Awardsにおいて最上位であるDATA DRIVER OF THE YEARを受賞 
+
+##### 第17回ITヘルスケア学会 
+- 学会発表：研究奨励賞受賞 
+- 『AIを用いた解析プログラム生成による医薬品開発効率化』 
+
+##### SAS Hackathon Boot Camp 2025 in Las Vegas 
+
+- 3rd place winner 
 
 #### 学会発表・講演
-
-##### 人工知能学会　第37回全国大会
-
+##### 人工知能学会　第38回全国大会 
 ###### 企画セッション
 
 - 『データエンジニアリングで育むデータの価値 ～データサイエンスを加速させる産学それぞれの視点～』 オーガナイザ（共同）
@@ -45,12 +97,59 @@ DX推進本部は、デジタル技術を用いたヘルスケアソリューシ
 - 『SHIONOGIのデータサイエンス部の活動内容ご紹介と採用イベント等のご案内』
 
 
+##### 第17回ITヘルスケア学会 
+
+- 『AIを用いた解析プログラム生成による医薬品開発効率化』 
+
+##### 第38回計算機統計学会 
+
+- 『時系列解析を用いた成り行き予測による効果検証と可視化』 
+- 『シミュレーションを用いた経営リソースの最適化』 
+
 ###### SAS Innovate 2024 Las Vegas
 
 - 『The Power of AI SAS Programmer: Pioneering Digital Transformation with AI, Data Science and SAS Viya』
 
+##### #SAS Innovate on tour2024 
+
+###### Japan Keynote： 
+
+- 『SHIONOGIデータサイエンスを加速するための統合解析環境を軸とした協創型データエコシステム』 
+
+###### Breakout session： 
+
+- 『SAS Viya × Snowflake を軸としたSHIONOGI協創型データエコシステムの構築と活用』 
+
+###### SASユーザー総会 2024 
+
+- 『データサイエンスを支えるデータエンジニアリングのチカラ‐SAS Viyaを中核とするSHIONOGI統合解析環境』 
+
+###### 製薬×データサイエンス meetup 2024 
+
+- 『次世代の価値創造に挑むSHIONOGIデータサイエンス-DWH、データカタログ、MLOpsの進化』 
+
+ 
+
+###### 第5回ナニワデータサイエンス研究会 
+- 『データサイエンスを支えるデータエンジニアリングのチカラ‐SAS Viyaを中核とするSHIONOGI統合解析環境』 
+
+###### AWS クラウドセミナー 2024:  
+- 最新事例に学ぶ製薬業界 臨床開発領域向け  
+- 『生成 AI を活用した SHIONOGIでの価値創出 – 規制文書作成業務効率化の事例紹介』 
+
+#### 論文(査読付) 
+
+- 『JMIR AI 2024;3:e55840:Predicting Workers’ Stress: Application of a High-Performance Algorithm Using Working-Style Characteristics』 
+
+
+
+
+
 
 ### 2023年度
+#### 受賞
+#### デジタルトランスフォーメーション銘柄2023 
+- DX注目企業2023への選定 
 
 #### 学会発表・講演
 
@@ -129,6 +228,7 @@ DX推進本部は、デジタル技術を用いたヘルスケアソリューシ
 ##### 情報処理学会 第86回全国大会
 
 - 『セルフヨガ実現に向けた骨格推定と呼吸波推定の活用検討』
+- 『畳み込みニューラルネットワークのバギングに基づく実験動物の探索行動自動判定の試み』 
 
 #### セミナー
 

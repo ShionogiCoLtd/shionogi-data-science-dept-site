@@ -13,17 +13,17 @@
         <div class="navbar-menu" id="navMenu">
             <div class="navbar-end">
                 <div class="navbar-item">
-                    <a href="{{ site.corporate_site }}" target="_blank">
+                    <a href="{{ site.corporate_site }}" target="_blank" class="external-link" data-label="SHIONOGI Group">
                         <span class="icon-text has-text-black">
                             <span class="icon">
                                 <i class="fas fa-globe"></i>
                             </span>
-                            <span>SHIONOGI Group Corporate Website</span>
+                            <span>SHIONOGI Group</span>
                         </span>
                     </a>
                 </div>
                 <div class="navbar-item">
-                    <a href="https://github.com/{{ site.github_username }}" target="_blank">
+                    <a href="https://github.com/{{ site.github_username }}" target="_blank" class="external-link" data-label="GitHub">
                         <span class="icon-text has-text-black">
                             <span class="icon">
                                 <i class="fab fa-github fa-lg"></i>
@@ -33,7 +33,7 @@
                     </a>
                 </div>
                 <div class="navbar-item">
-                    <a href="https://github.com/{{ site.github_repo }}" target="_blank">
+                    <a href="https://github.com/{{ site.github_repo }}" target="_blank" class="external-link" data-label="Source Code">
                         <span class="icon-text has-text-black">
                             <span class="icon">
                                 <i class="fas fa-code fa-lg"></i>
@@ -42,8 +42,22 @@
                         </span>
                     </a>
                 </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        <span class="icon-text has-text-black">
+                            <span class="icon">
+                                <i class="fas fa-person-chalkboard fa-lg"></i>
+                            </span>
+                            <span>Event</span>
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{{ site.baseurl }}/events/ds-fes-2023">SHIONOGI DATA SCIENCE FES 2023</a>
+                        <a class="navbar-item" href="{{ site.baseurl }}/events/ds-fes-2024">SHIONOGI DATA SCIENCE FES 2024</a>
+                    </div>
+                </div>
                 <div class="navbar-item">
-                    <a href="{{ site.recruiting_site}}" target="_blank">
+                    <a href="{{ site.recruiting_site }}" target="_blank" class="external-link" data-label="Careers">
                         <span class="icon-text has-text-black">
                             <span class="icon">
                                 <i class="fas fa-user-tie fa-lg"></i>

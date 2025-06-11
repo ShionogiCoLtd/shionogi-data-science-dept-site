@@ -7,4 +7,4 @@ services:
       - ${PWD}:/srv/jekyll
     ports:
       - "${JEKYLL_PORT}:4000"
-    command: jekyll serve --watch --force_polling --verbose
+    command: jekyll serve --watch --force_polling --verbose --host 0.0.0.0

@@ -17,6 +17,24 @@ h6 {
 $card-shadow: none;
 $card-footer-border-top: none;
 $card-background-color: $light;
+.card {
+    height: 100%;
+}
+
+.card-content {
+    height: 100%;
+}
+.card-image img {
+    max-height: 300px;
+    object-fit: cover; 
+}
+//新たなclass設定
+.card-content .excerpt-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 表示する行数 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 
 // Pagination
 $pagination-focus-border-color: $dark;
