@@ -5,7 +5,7 @@
         normal-header
     {% endif %}
     is-bold" {% if page.title=='About Us' %}
-    style="background: linear-gradient(to right, white 0%, white 50%, transparent 100%), url('{{ page.image | prepend: site.baseurl }}') no-repeat center right; background-size: auto 50vh;"
+    style="background: url('{{ page.image | prepend: site.baseurl }}') no-repeat center center; background-size: cover;"
     {% elsif page.image %}
     style="background: url('{{ page.image | prepend: site.baseurl }}') no-repeat center center; background-size: cover;"
     {% endif %}>
