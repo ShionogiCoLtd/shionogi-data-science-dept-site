@@ -1,39 +1,121 @@
-.banner {
-    position: relative;
+$text-fade-up: 200px;
+$text-fall-down: -400px;
+$delay-unit: 0.5ms;
+$duration: 0.8s;
 
-    .image-background {
-        position: relative;
-        min-height: 300px;
-        background-image: url('img/aboutus/people.png'); /* 画像を背景画像として設定 */
-        background-size: cover; /* 背景画像を要素にフィットさせ、可能な限り中央に表示 */
-        background-position: center; /* 画像を中央に位置させる */
-        
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-           
-        }
-    }
-    .my-button {
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        transition: all 0.5s ease;
-    }
+.parallax-wrapper {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
 
-    .my-button:hover {
-        transform: scale(1.1);
-        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-    }
-    
-    
+.parallax-background {
+  background-image: url('/shionogi-data-science-dept-site/img/aboutus/people1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 
-    .content-text {
-        position: absolute;
-        top: 30%;
-        left: 2rem;
+  
+  --brightness-value: 0.5;
+  filter: brightness(var(--brightness-value));
+  transition: filter 0.3s ease-out;
+}
 
-    }
+@media (max-width: 768px) {
+  .parallax-background {
+    background-position: top center; 
+    background-attachment: scroll;    
+    background-size: cover;      
+    filter: brightness(0.7);
+    padding-top: 30rem;          
+  }
+
+  .parallax-wrapper {
+    height: 20vh; 
+  }
+}
+
+
+.parallax-foreground {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 1rem;
+  flex-direction: column;
+  color: white;
+
+  
+  font-family: 'Segoe UI', 'Meiryo UI', sans-serif;
+
+  font-size: clamp(2rem, 3vw, 3.5rem);
+  font-weight: 700;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+
+.reg-text {
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY($text-fade-up);
+  transition: transform $duration ease-out, opacity $duration ease;
+
+  &.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.letter-group {
+  display: inline-block;
+  letter-spacing: 0; 
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY($text-fall-down);
+  transition: transform $duration ease, opacity $duration ease, filter $duration ease;
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: 'Segoe UI', 'Meiryo UI', sans-serif; 
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  &.loaded {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.letter-space {
+  display: inline-block;
+  width: 0.2em;
+  height: 1em;
+  font-size: 2.5rem;
+  line-height: 1;
+  font-family: 'Segoe UI', 'Meiryo UI', sans-serif;
+
+  @media (max-width: 768px) {
+    font-size: 0.5rem;
+    width: 0.2em;   
+  }
 }

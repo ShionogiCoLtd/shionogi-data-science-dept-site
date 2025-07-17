@@ -2,42 +2,26 @@
 layout: default
 ---
 
-{% if page.intro %}
-<div class="intro">
-    <div class="columns is-centered">
-        {% if page.intro_image %}
-        <div class="column is-8-desktop is-6-tablet">
-            <figure
-                class="image {% if page.intro_image_ratio %} {{ page.intro_image_ratio }} {% else %} is-16by9 {% endif %}">
-                <img src="{{ page.intro_image | prepend: site.baseurl }}" alt="{{ page.title }}" />
-            </figure>
-        </div>
-        {% endif %}
-        <div class="column is-4-desktop is-6-tablet">
-            <p class="title is-1">{{ page.intro }}</p>
-        </div>
-    </div>
-</div>
-{% endif %}
+<div class="post-wrapper box">
+  <div class="content">
+    <p class="has-text-right">{{ page.date | date: "%Y年%-m月%-d日" }}</p>
+    {{ content }}
+  </div>
 
-<div class="columns is-centered">
-    <div class="column is-8-desktop is-10-tablet">
-        <div class="content">
-            <p class="has-text-right">{{ page.date | date: "%Y年%-m月%-d日" }}</p>
-            {{ content }}
-        </div>
+  <div class="tags">
+    {% for tag in page.tags %}
+    <span class="tag is-primary">{{ tag }}</span>
+    {% endfor %}
+  </div>
 
-        <div class="tags">
-            {% for tag in page.tags %}
-            <span class="tag is-primary">{{ tag }}</span>
-            {% endfor %}
-        </div>
 
-        {% assign recruitments = site.recruitments | where: 'title', [page.recruitments] %}
-        {% if recruitments %}
-        {% for recruitment in recruitments %}
+  <div class="recruitments-section">
+    {% assign recruitments = site.recruitments | where: "title", page.recruitments %}
+    {% if recruitments %}
+      {% for recruitment in recruitments %}
         {% include recruitment.html %}
-        {% endfor %}
-        {% endif %}
-    </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+
 </div>

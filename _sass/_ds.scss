@@ -1,0 +1,396 @@
+.ds-article {
+  font-family: "A-OTF UD Shin Go Pro", "Meiryo UI", "Noto Sans JP", sans-serif;
+  line-height: 1.9;
+  color: #222;
+  background-color: #f7f7f7;
+
+  padding: 2rem 1rem;
+
+  .ds-header,
+  .ds-content,
+  .ds-tags {
+    background-color: #ffffff;
+    max-width: 900px;
+    margin: 0 auto 2.5rem auto;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .ds-header {
+    padding-bottom: 1.5rem;
+
+    h1.title {
+      font-size: 2.6rem;
+      text-align: center;
+      color: #111;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    p {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #666;
+    }
+  }
+
+  .ds-tags {
+    text-align: center;
+
+    .tag {
+      margin: 0 0.25rem;
+    }
+  }
+
+  .ds-content {
+    padding: 2.5rem 1.5rem;
+
+    h2 {
+      font-size: 1.8rem;
+      margin: 3rem 0 1.5rem;
+      padding-left: 0.75rem;
+      color: #1a1a1a;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.25rem;
+      padding-left: 0.5rem;
+      border-left: 4px solid #aaa;
+      color: #333;
+      font-weight: 600;
+    }
+
+    h4 {
+      font-size: 1.15rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #444;
+    }
+
+    p {
+      margin-bottom: 1.6rem;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    a {
+      color: #0051a2;
+      text-decoration: underline;
+
+      &:hover {
+        opacity: 0.8;
+        text-decoration: none;
+      }
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+
+      li {
+        list-style-type: disc;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    img {
+      margin: 2.5rem auto;
+      display: block;
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 3rem 0;
+    }
+  }
+
+  .section-intro {
+    padding: 1.5rem;
+    border-left: none;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .speaker {
+    background-color: #f9f9f9;
+    border-left: 2px solid #aaa;
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: 6px;
+    font-size: 1.05rem;
+  }
+  .speaker-name {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #d80c24; 
+    margin-bottom: 0.75rem;
+  }
+
+  .speaker-comment {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+
+    p {
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+
+      li {
+        list-style-type: disc;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .ds-topic-section {
+    background: #fdfdfd;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    border-radius: 0.6rem;
+    border: 1px solid #ddd;
+  }
+
+  .ds-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 2rem 0;
+    border: 2px solid #000; 
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .ds-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  
+  .ds-video-caption {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  
+  #topic1,
+  #topic2,
+  #topic3,
+  #topic4,
+  #topic5,
+  #topic6 {
+    scroll-margin-top: 80px;
+    display: block;
+    margin-top: 2rem;
+  }
+}
+
+#closing {
+  margin-top: 4rem;
+  .closing-message {
+    font-size: 1rem;
+    line-height: 1.8;
+    padding: 1rem 0;
+    background: #f8f8f8;
+    border-left: 5px solid #d80c24;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .event-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      flex: 1 1 calc(50% - 1rem);
+
+      @media (max-width: 768px) {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .ds-article {
+    padding: 1.2rem 0.75rem;
+
+    .ds-header,
+    .ds-content,
+    .ds-tags {
+      padding: 1.5rem 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .ds-header h1.title {
+      font-size: 1.1rem;
+    }
+
+    .ds-header p {
+      font-size: 0.7rem;
+    }
+
+    .ds-tags .tag {
+      margin: 0.2rem 0.2rem;
+    }
+
+    .ds-content {
+      padding: 1.8rem 1rem;
+
+      h2 {
+        font-size: 0.9rem;
+        margin: 2rem 0 1rem;
+      }
+
+      h3 {
+        font-size: 0.7rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      h4 {
+        font-size: 0.7rem;
+        margin-top: 1rem;
+        margin-bottom: 0.6rem;
+      }
+
+      p {
+        font-size: 0.7rem;
+      }
+
+      ul li {
+        font-size: 0.7rem;
+      }
+    }
+
+    .speaker {
+      font-size: 0.7rem;
+      padding: 1rem;
+    }
+
+    .speaker-name {
+      font-size: 0.7rem;
+    }
+
+    .speaker-comment {
+      font-size: 0.7rem;
+
+      p {
+        font-size: 0.7rem;
+        line-height: 1.7;
+      }
+
+      ul li {
+        font-size: 0.7rem;
+      }
+    }
+
+    .ds-topic-section {
+      padding: 1rem;
+    }
+
+    .ds-video {
+      margin: 1rem 0;
+    }
+
+    .ds-video-caption {
+      font-size: 0.5rem;
+    }
+
+    #topic1,
+    #topic2,
+    #topic3,
+    #topic4,
+    #topic5,
+    #topic6 {
+      margin-top: 0.75rem;
+    }
+  }
+
+  #closing {
+    margin-top: 1.5rem;
+
+    .closing-message {
+      font-size: 0.8rem;
+      padding-left: 0.75rem;
+    }
+
+    .event-gallery {
+      gap: 0.75rem;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .ds-article {
+    padding: 1.25rem 0.25rem;
+
+    .ds-header,
+    .ds-content,
+    .ds-tags {
+      padding: 0.35rem 1rem;
+      margin: 0 0 1.5rem 0;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .ds-content {
+      padding: 0.4rem 1rem;
+
+      .toc-list {
+        padding-left: 0.65rem;
+        margin-left: 0.65rem;
+        list-style: none;
+
+        ul {
+          padding-left: 0.8rem; // ネストされたリスト用
+        }
+      }
+    }
+
+    .speaker {
+      border-left: none;       // 線を消す
+      background-color: #fff;  // 背景を白に
+      padding: 0.4rem 0.75rem;
+    }
+
+  }
+
+  #closing {
+    margin-top: 0.35rem;
+
+    .closing-message {
+      font-size: 0.8rem;
+      padding-left: 0.75rem;
+    }
+
+    .event-gallery {
+      gap: 0.75rem;
+    }
+  }
+}
