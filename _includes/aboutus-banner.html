@@ -1,24 +1,28 @@
-<div class="banner">
-    <div class="image-background">
-        <img src="img/aboutus/people.png" />
-        <div class="overlay" />
+
+<div class="parallax-wrapper banner">
+  <div class="parallax-background"></div>
+  <div class="parallax-foreground text-container">
+    <div class="letter-group">
+      <span class="letter">S</span><span class="letter">h</span><span class="letter">i</span><span class="letter">o</span><span class="letter">n</span><span class="letter">o</span><span class="letter">g</span><span class="letter">i</span>
+      <span class="letter-space"></span>
+      <span class="letter">D</span><span class="letter">a</span><span class="letter">t</span><span class="letter">a</span>
+      <span class="letter-space"></span>
+      <span class="letter">S</span><span class="letter">c</span><span class="letter">i</span><span class="letter">e</span><span class="letter">n</span><span class="letter">c</span><span class="letter">e</span>
+      <span class="letter-space"></span>
+      <span class="letter">D</span><span class="letter">e</span><span class="letter">p</span><span class="letter">a</span><span class="letter">r</span><span class="letter">t</span><span class="letter">m</span><span class="letter">e</span><span class="letter">n</span><span class="letter">t</span>
     </div>
-    <div class="content-text has-text-white subtitle is-size-5 is-size-5-tablet is-size-3-desktop my-subtitle" style="text-shadow: 0 1px black, 1px 0 black, 0 0px black;"> <!-- my-subtitleクラスを追加 -->
-           私たちについて
-        <div>
-            <a href="{{ site.baseurl }}/aboutus">
-                <button class="button mt-3 is-large is-light is-outlined my-button"> <!-- my-buttonクラスを追加 -->
-                    <span class="icon">
-                        <i class="fas fa-people-group"></i>
-                    </span>
-                    <span>
-                        About us
-                    </span>
-                    <span class="icon"> 
-                        <i class="fas fa-angle-down"></i>
-                    </span>    
-                </button>
-            </a>
-        </div>
-    </div>
+  </div>
 </div>
+
+<script>
+  window.addEventListener("load", function () {
+    const letters = document.querySelectorAll(".letter");
+    letters.forEach((el, i) => {
+      setTimeout(() => {
+        el.classList.add("loaded");
+      }, i * 50); // 50ms間隔で順番に表示
+    });
+  });
+</script>
+
+

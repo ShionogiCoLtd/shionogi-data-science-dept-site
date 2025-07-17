@@ -1,18 +1,43 @@
-<section class="
-    {% if page.is_hero %}
-        hero-header
-    {% else %}
-        normal-header
-    {% endif %}
-    is-bold" {% if page.title=='About Us' %}
-    style="background: url('{{ page.image | prepend: site.baseurl }}') no-repeat center center; background-size: cover;"
-    {% elsif page.image %}
-    style="background: url('{{ page.image | prepend: site.baseurl }}') no-repeat center center; background-size: cover;"
-    {% endif %}>
-    <div class="{% if page.is_hero %} hero-header-body {% else %} normal-header-body {% endif %}">
-        <div class="container">
-            <p class="title has-text-white is-size-3 is-size-2-tablet is-size-1-desktop">{{ page.title }}</p>
-            <p class="subtitle has-text-white is-5 is-size-4-tablet is-size-3-desktop">{{ page.subtitle }}</p>
+<section id="hero-header" class="hero-badge fixed-header-show">
+  <div class="hero-badge-inner">
+    <a href="{{ site.baseurl }}/" class="hero-badge-title-link skew-link">
+      <h1 class="hero-badge-title skew-text">塩野義製薬 データサイエンス部</h1>
+    </a>
+
+    <div class="hero-badge-links">
+
+      <!-- 外部リンク：SHIONOGI Group -->
+      <a href="{{ site.corporate_site }}" target="_blank" class="external-link" data-label="SHIONOGI Group">
+        SHIONOGI Group
+      </a>
+
+      <!-- イベントドロップダウン -->
+      <div class="navbar-item is-hoverable is-event-dropdown">
+        <span class="navbar-link">Events</span>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="{{ site.baseurl }}/events/ds-fes-2023">
+            SHIONOGI DATA SCIENCE FES 2023
+          </a>
+          <a class="navbar-item" href="{{ site.baseurl }}/events/ds-fes-2024">
+            SHIONOGI DATA SCIENCE FES 2024
+          </a>
         </div>
+      </div>
+
+      <!-- 外部リンク：GitHub -->
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" class="external-link" data-label="GitHub Top">
+        GitHub
+      </a>
+
+      <a href="https://github.com/{{ site.github_repo }}" target="_blank" class="external-link" data-label="GitHub Source">
+        Source
+      </a>
+
+      <!-- 外部リンク：Careers -->
+      <a href="{{ site.recruiting_site }}" target="_blank" class="external-link" data-label="Careers">
+        Careers
+      </a>
+
     </div>
+  </div>
 </section>

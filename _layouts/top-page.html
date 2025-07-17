@@ -1,30 +1,53 @@
 ---
 layout: default
 ---
-<h1>
-    We are Shionogi Data Science Department
-</h1>
 
-{% include aboutus-banner.html %}
+<div class="aboutus-button-wrapper">
+  <button id="aboutus-toggle-btn" class="button custom-aboutus-btn slide-in" onclick="toggleAboutDetail()">データサイエンス部の業務紹介</button>
+</div>
 
-<h2>
-    データサイエンス部の業務紹介
-                           
-</h2>
+<div id="aboutus-detail-text" class="aboutus-detail" style="margin: 1rem auto; max-width: 960px;">
+  <p>
+    私たちデータサイエンス部は、“新たなプラットフォームでヘルスケアの未来を創り出す” というSHIONOGIの2030年ビジョン達成に向けて、2020年4月に発足したヘルスケア戦略本部の傘下に、医薬開発本部 解析センターの一部機能独立により設立されたデータサイエンス室が起源です。
+
+    疾患の啓発・予防・診断・治療、および健康の維持・増進に対して、高度解析技術を駆使し、データに基づく戦略立案、推進に貢献してきました。
+    また、製品の研究・開発～市販後までの幅広いステージにおいて、統計およびデータサイエンスの側面から支援し、科学的根拠に基づく経営判断にも貢献してきました。
+
+    今後もこれらの貢献を続けながら、社内外の有用かつ多様なデータを収集するデータ活用基盤を構築していくため、そしてデータリテラシー向上のための人材育成施策を企画・推進していくため、データサイエンス室の機能・リソースを増強し、データサイエンス部として再編し、現在はDX推進本部の傘下に所属しています。
+    DX推進本部は、デジタル技術を用いたヘルスケアソリューションの創出とその実現を支えるデータ活用およびIT/セキュリティ基盤の構築を担う機能として2021年7月1日に新設されました。
+  </p>
+</div>
+
+<script>
+  function toggleAboutDetail() {
+    const detail = document.getElementById("aboutus-detail-text");
+    const btn = document.getElementById("aboutus-toggle-btn");
+
+    detail.classList.toggle("open");
+
+    if (detail.classList.contains("open")) {
+      btn.textContent = "Close";
+    } else {
+      btn.textContent = "データサイエンス部の業務紹介";
+    }
+  }
+</script>
 
 <div class="content">
-    {{ content }}
+  {{ content }}
 </div>
 
 <div class="columns is-multiline">
-    {% assign post_width = "6|6|6|6|6|6" | split: "|" %}
-    {% for post in paginator.posts limit:6 %}
-    <div class="column is-{{ post_width[forloop.index0] }}">
-        {% include post-item.html %}
-    </div>
-    {% endfor %}
+  {% assign post_width = "6|6|6|6|6|6" | split: "|" %}
+  {% for post in paginator.posts limit:6 %}
+  <div class="column is-{{ post_width[forloop.index0] }}">
+    {% include post-item.html %}
+  </div>
+  {% endfor %}
 
-    <div class="column is-12">
-        {% include pagination.html %}
-    </div>
+  <div class="column is-12">
+    {% include pagination.html %}
+  </div>
 </div>
+
+{% include presentations.html %}

@@ -1,51 +1,172 @@
-// Fonts
-$family-sans-serif: "Segoe UI", BlinkMacSystemFont, -apple-system, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", "Meiryo UI", sans-serif !default;
-$family-primary: $family-sans-serif;
-$family-secondary: $family-sans-serif;
-$title-family: $family-secondary;
+.card.post-card {
+  border-radius: 1.1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: $family-secondary;
-}
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
 
-//Cards
-$card-shadow: none;
-$card-footer-border-top: none;
-$card-background-color: $light;
-.card {
+  .card-image {
+    margin-bottom: 0;
+
+    .image-wrapper {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+
+      img {
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        width: 100%;
+        height: 98%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    background: white;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100%;
+
+    .content {
+      line-height: 1.7;
+
+      .modern-title {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+
+        a {
+          color: #0055cc;
+          text-decoration: underline;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #d80c24;
+          }
+        }
+      }
+
+      .subtitle {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 0.75rem;
+        line-height: 1.6;
+      }
+
+      .excerpt-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5;
+        max-height: 4.0em; 
+        margin-bottom: 1rem;
+      }
+    }
+
+    .has-text-centered {
+      margin-top: 1rem;
+
+      .modern-button {
+        padding: 0.4rem 1.25rem;
+        border: 1px solid #d80c24;
+        border-radius: 999px;
+        color: #d80c24;
+        font-weight: bold;
+        background: transparent;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #d80c24;
+          color: #fff;
+        }
+      }
+    }
+  }
 }
 
-.card-content {
-    height: 100%;
-}
-.card-image img {
-    max-height: 300px;
-    object-fit: cover; 
-}
-//新たなclass設定
-.card-content .excerpt-text {
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* 表示する行数 */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+.pagination-link.custom-pagination {
+  color: $red-a;
+  border: 1px solid $red-a;
+  background-color: white;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $red-a;
+    color: white;
+  }
+
+  &.is-current {
+    background-color: $red-a;
+    color: white;
+    border-color: $red-a;
+  }
 }
 
-// Pagination
-$pagination-focus-border-color: $dark;
-$pagination-current-color: $white;
-$pagination-current-background-color: $dark;
-$pagination-current-border-color: $dark;
 
-// Radius
-// $radius: 0;
-// $radius-large: 0;
-// $radius-small: 0;
+@media (max-width: 768px) {
+  .card.post-card {
+    .card-image {
+      .image-wrapper {
+        height: 160px; 
+      }
+    }
 
-// Navbar setting
-$navbar-height: 3.5rem;
+    .card-content {
+      padding: 1rem;
+
+      .content {
+        line-height: 1.6;
+        
+        .modern-title {
+          font-size: 0.95rem;
+          line-height: 1.4;
+        }
+
+        .subtitle {
+          font-size: 0.8rem;
+          line-height: 1.6;
+        }
+
+        .excerpt-text {
+          font-size: 0.8rem;
+          line-height: 1.6;
+          max-height: 4.0em; 
+        }
+      }
+
+      .has-text-centered {
+        .modern-button {
+          padding: 0.3rem 1rem;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  .pagination-link.custom-pagination {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+

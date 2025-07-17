@@ -1,17 +1,19 @@
-<div class="card">
-    <div class="card-image">
-        <img src="{{ post.thumbnail_image | prepend: site.baseurl }}" alt="{{ post.title }}" width="100%">
+<div class="card post-card image-hover-zoom">
+  <div class="card-image">
+    <div class="image-wrapper">
+      <img src="{{ post.thumbnail_image | prepend: site.baseurl }}" alt="{{ post.title }}">
     </div>
-    <div class="card-content">
-        <div class="content">
-            <a href="{{ site.baseurl }}{{ post.url }}">
-                <p class="title is-4">{{ post.title}}</p>
-            </a>
-            <p class="subtitle is-6">{{ post.date | date: "%Y年%-m月%-d日" }}</p>
-            <p class="excerpt-text">{{ post.excerpt | strip_html | strip_newlines | truncate: 200 }}</p>
-        </div>
-        <div class="has-text-centered">
-            <a href="{{ site.baseurl }}{{ post.url }}" class="button is-dark is-fullwidth">読む</a>
-        </div>
+  </div>
+  <div class="card-content">
+    <div class="content">
+      <a href="{{ site.baseurl }}{{ post.url }}" class="post-link">
+        <p class="modern-title">{{ post.title }}</p>
+      </a>
+      <p class="subtitle is-6">{{ post.date | date: "%Y年%-m月%-d日" }}</p>
+      <p class="excerpt-text">{{ post.excerpt | strip_html | strip_newlines }}</p>
     </div>
+    <div class="has-text-centered">
+      <a href="{{ site.baseurl }}{{ post.url }}" class="modern-button">続きを読む</a>
+    </div>
+  </div>
 </div>

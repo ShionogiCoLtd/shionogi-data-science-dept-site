@@ -2,12 +2,73 @@
 @import "color_constant";
 @import "basic_setting";
 @import "../node_modules/bulma/bulma.sass";
-@import "contents";
 @import "layout";
-@import "syntax";
 @import "intro";
-@import "navbar";
+@import "aboutus-card";
 @import "header";
 @import "footer";
 @import "recruitment";
 @import "aboutus-banner";
+@import "presentations";
+@import "ds";
+
+body {
+  background-color: #000000 !important;
+}
+
+// タイトル表示用アニメーション
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title-ja {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.soft-highlight-title {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+
+  
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.8rem;
+}
+
+.soft-highlight--with-margin {
+  margin-top: 2rem; 
+}
+
+@media (max-width: 768px) {
+  .title-ja {
+    font-size: 1rem; 
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+
+  .soft-highlight-title {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.6rem;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .soft-highlight--with-margin {
+    margin-top: 1rem; 
+  }
+
+  body {
+    font-size: 12px; 
+  }
+}
