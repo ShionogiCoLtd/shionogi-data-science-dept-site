@@ -239,21 +239,21 @@
 
 @media (max-width: 768px) {
   .ds-article {
-    padding: 1.2rem 0.75rem;
+    padding: 1rem 0.2rem;
 
     .ds-header,
     .ds-content,
     .ds-tags {
-      padding: 1.5rem 1rem;
+      padding: 1.2rem 0.7rem;
       margin-bottom: 2rem;
     }
 
     .ds-header h1.title {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
 
     .ds-header p {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
     }
 
     .ds-tags .tag {
@@ -264,28 +264,28 @@
       padding: 1.8rem 1rem;
 
       h2 {
-        font-size: 0.9rem;
-        margin: 2rem 0 1rem;
+        font-size: 1.1rem;
+        margin: 1.7rem 0 1rem;
       }
 
       h3 {
-        font-size: 0.7rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
+        font-size: 0.8rem;
+        margin-top: 1.7rem;
+        margin-bottom: 0.8rem;
       }
 
       h4 {
-        font-size: 0.7rem;
-        margin-top: 1rem;
+        font-size: 0.8rem;
+        margin-top: 0.9rem;
         margin-bottom: 0.6rem;
       }
 
       p {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
       }
 
       ul li {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
       }
     }
 
@@ -299,28 +299,28 @@
     }
 
     .speaker-comment {
-      font-size: 0.7rem;
+      font-size: 0.9rem;
 
       p {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         line-height: 1.7;
       }
 
       ul li {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
       }
     }
 
     .ds-topic-section {
-      padding: 1rem;
+      padding: 0.7rem;
     }
 
     .ds-video {
-      margin: 1rem 0;
+      margin: 0.7rem 0;
     }
 
     .ds-video-caption {
-      font-size: 0.5rem;
+      font-size: 0.7rem;
     }
 
     #topic1,
@@ -329,7 +329,7 @@
     #topic4,
     #topic5,
     #topic6 {
-      margin-top: 0.75rem;
+      margin-top: 0.5rem;
     }
   }
 
@@ -337,7 +337,7 @@
     margin-top: 1.5rem;
 
     .closing-message {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       padding-left: 0.75rem;
     }
 
@@ -348,27 +348,27 @@
 }
 @media (max-width: 768px) {
   .ds-article {
-    padding: 1.25rem 0.25rem;
+    padding: 3.25rem 0.25rem;
 
     .ds-header,
     .ds-content,
     .ds-tags {
-      padding: 0.35rem 1rem;
+      padding: 0.55rem 0.5rem;
       margin: 0 0 1.5rem 0;
       max-width: 100%;
       width: 100%;
     }
 
     .ds-content {
-      padding: 0.4rem 1rem;
+      padding: 0.4rem 0.5rem;
 
       .toc-list {
-        padding-left: 0.65rem;
-        margin-left: 0.65rem;
+        padding-left: 0.45rem;
+        margin-left: 0.45rem;
         list-style: none;
 
         ul {
-          padding-left: 0.8rem; // ネストされたリスト用
+          padding-left: 0.7rem; // ネストされたリスト用
         }
       }
     }
@@ -376,7 +376,7 @@
     .speaker {
       border-left: none;       // 線を消す
       background-color: #fff;  // 背景を白に
-      padding: 0.4rem 0.75rem;
+      padding: 0.4rem 0.4rem;
     }
 
   }
@@ -385,7 +385,7 @@
     margin-top: 0.35rem;
 
     .closing-message {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       padding-left: 0.75rem;
     }
 
