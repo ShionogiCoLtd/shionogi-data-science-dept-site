@@ -2,17 +2,26 @@
   <button id="toggle-presentation-btn" class="button is-danger is-outlined" onclick="togglePresentation()">
     社外発表実績を知りたい方はこちら（臨床研究を除くデータサイエンス関連のトピック）
   </button>
-
 </div>
 
-<div id="presentation-section" class="scroll-container-wrapper" style="display: none;">
-  <button class="scroll-btn left" onclick="scrollSlides('left')">&#10094;</button>
-
-  <div class="horizontal-scroll-wrapper" id="presentation-scroll">
+<div id="presentation-section" class="presentation-container" style="display: none;">
   
-    <section class="year-slide">
-      <h3>2025年度（予定含む）</h3>
+  <!-- 年度タブ -->
+  <div class="year-tabs">
+    <button class="tab-btn active" data-year="2025" onclick="switchYear('2025')">2025年度</button>
+    <button class="tab-btn" data-year="2024" onclick="switchYear('2024')">2024年度</button>
+    <button class="tab-btn" data-year="2023" onclick="switchYear('2023')">2023年度</button>
+    <button class="tab-btn" data-year="2022" onclick="switchYear('2022')">2022年度</button>
+    <button class="tab-btn" data-year="2021" onclick="switchYear('2021')">2021年度</button>
+    <button class="tab-btn" data-year="2020" onclick="switchYear('2020')">2020年度</button>
+  </div>
 
+  <!-- 年度別コンテンツ -->
+  <div class="year-content-wrapper">
+    
+    <!-- 2025年度 -->
+    <div id="year-2025" class="year-content active">
+      <h3>2025年度（予定含む）</h3>
       
       <div class="presentation-block">
         <h4 class="block-title">🏆 受賞</h4>
@@ -31,7 +40,6 @@
           </ul>
         </div>
       </div>
-
 
       <div class="presentation-block">
         <h4 class="block-title">🧪 学会発表・講演</h4>
@@ -73,22 +81,12 @@
           </ul>
         </div>
       </div>
+    </div>
 
-    <!-- 🗂 その他（必要に応じて） -->
-    <!-- <div class="presentation-block">
-      <h4 class="block-title">🗂 その他</h4>
-      <div class="entry">
-        <h5>例: 特許出願・出版</h5>
-        <ul>
-          <li>内容をここに追加</li>
-        </ul>
-      </div>
-    </div> -->
-    </section>
-    <section class="year-slide">
+    <!-- 2024年度 -->
+    <div id="year-2024" class="year-content">
       <h3>2024年度</h3>
-
-  
+      
       <div class="presentation-block">
         <h4 class="block-title">🏆 受賞</h4>
 
@@ -105,12 +103,14 @@
             <li>Innovative Problem Solver： 1st place winnerを日本企業として初めて受賞（グローバル47企業がエントリー）</li>
           </ul>
         </div>
+        
         <div class="entry">
           <h5>Japan Data Drivers Awards</h5>
           <ul>
             <li>Data Drivers Awardsにおいて最上位であるDATA DRIVER OF THE YEARを受賞</li>
           </ul>
         </div>
+        
         <div class="entry">
           <h5>第17回ITヘルスケア学会</h5>
           <ul>
@@ -127,9 +127,8 @@
         </div>
       </div>
 
-
       <div class="presentation-block">
-        <h4 class="block-title">学会発表・講演</h4>
+        <h4 class="block-title">🧪 学会発表・講演</h4>
 
         <div class="entry">
           <h5>人工知能学会・第38回全国大会</h5>
@@ -141,15 +140,8 @@
             <li>一般セッション：『事前学習と実臨床データを組み合わせた睡眠段階自動スコアリング精度改善技術の開発』</li>
             <li>企業ブース出展：『SHIONOGIのデータサイエンス部の活動内容ご紹介と採用イベント等のご案内』</li>
           </ul>
-        </div>  
-    </section>
-
-
-    <section class="year-slide">
-      <h3>2024年度</h3>
-  
-      <div class="presentation-block">
-        <h4 class="block-title">学会発表・講演</h4>
+        </div>
+        
         <div class="entry">
           <h5>第17回ITヘルスケア学会</h5>
           <ul>
@@ -212,14 +204,16 @@
         <div class="entry">
           <h5>論文（査読付）</h5>
           <ul>
-            <li>『JMIR AI 2024;3:e55840: Predicting Workers’ Stress: Application of a High-Performance Algorithm Using Working-Style Characteristics』</li>
+            <li>『JMIR AI 2024;3:e55840: Predicting Workers' Stress: Application of a High-Performance Algorithm Using Working-Style Characteristics』</li>
           </ul>
         </div>
-      </div> 
-    </section>
-    <section class="year-slide">
-      <h3>2023年度</h3>
+      </div>
+    </div>
 
+    <!-- 2023年度 -->
+    <div id="year-2023" class="year-content">
+      <h3>2023年度</h3>
+      
       <div class="presentation-block">
         <h4 class="block-title">🏆 受賞</h4>
         <div class="entry">
@@ -230,9 +224,8 @@
         </div>
       </div>
 
-
       <div class="presentation-block">
-        <h4 class="block-title"> 学会発表・講演</h4>
+        <h4 class="block-title">🧪 学会発表・講演</h4>
 
         <div class="entry">
           <h5>SHIONOGI主催イベント SHIONOGI DATA SCIENCE FES 2024</h5>
@@ -260,13 +253,6 @@
             <li>『勤怠データとウェアラブルデバイスを用いた個別最適モデルによる労働者のストレス予測』</li>
           </ul>
         </div>
-    </section>
-    <section class="year-slide">
-      <h3>2023年度</h3>
-
-
-      <div class="presentation-block">
-        <h4 class="block-title">学会発表・講演</h4>
 
         <div class="entry">
           <h5>日本食品科学工学会 第70回記念大会</h5>
@@ -282,88 +268,7 @@
             <li>『製薬企業におけるRWD利活用の現状とエビデンス構築事例の紹介』</li>
           </ul>
         </div>
-
-        <div class="entry">
-          <h5>日本計算機統計学会 第37回シンポジウム</h5>
-          <ul>
-            <li>『逐次ベイズ推定を用いた経営リソースのモンテカルロシミュレーション』</li>
-            <li>『Spotfire・Python連携を用いたモンテカルロシミュレーションの可視化』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>PharmaSUG SDE Japan 2023</h5>
-          <ul>
-            <li>『Generating Valuable Dummy Data for Analytical Method Development』</li>
-            <li>『人工知能解析プログラマ/DX推進サービス』（Sponsor Session）</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>2023年度 日本分類学会シンポジウム</h5>
-          <ul>
-            <li>『異常検知手法による培養細胞画像のウイルス感染検出』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>バイオベンチャーアライアンス主催 2023年度第2回ヘルスケア研究会</h5>
-          <ul>
-            <li>『SHIONOGIデータサイエンス部が描くデータ駆動型ヘルスケアの未来ーメンタルヘルスの事例から見えた期待と課題』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>SCDM Japan Regional Conference 2023</h5>
-          <ul>
-            <li>『SHIONOGIにおける新たな統合解析環境構築』（SAS Institute Japan主催セッションへの企画協力）</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>京都女子大学 データサイエンス学部・研究所開設記念シンポジウム</h5>
-          <ul>
-            <li>『塩野義製薬 データサイエンス部の紹介、現地見学講義の実施報告』</li>
-          </ul>
-        </div>
       </div>
-    </section>
-    <section class="year-slide">
-      <h3>2023年度</h3>
-
-      <div class="presentation-block">
-        <h4 class="block-title">学会発表・講演（続き）</h4>
-
-        <div class="entry">
-          <h5>第18回日本統計学会春季集会</h5>
-          <ul>
-            <li>『欠測を伴う結果変数を考慮した因果推論における共変量バランスの検討』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>データマネジメント2024</h5>
-          <ul>
-            <li>『塩野義製薬の成功事例から学ぶデータ活用による事業革新－ヘルスケア産業が目指す新たな価値づくり－』（共同発表）</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>日本臨床試験学会第15回学術集会総会</h5>
-          <ul>
-            <li>『COVID-19パンデミック下における患者の受診動向調査』（共同研究）</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>情報処理学会 第86回全国大会</h5>
-          <ul>
-            <li>『セルフヨガ実現に向けた骨格推定と呼吸波推定の活用検討』</li>
-            <li>『畳み込みニューラルネットワークのバギングに基づく実験動物の探索行動自動判定の試み』</li>
-          </ul>
-        </div>
-      </div>
-
 
       <div class="presentation-block">
         <h4 class="block-title">🗣 セミナー</h4>
@@ -381,96 +286,7 @@
             <li>『SHIONOGIにおける営業領域でのデータ活用事例』</li>
           </ul>
         </div>
-
-        <div class="entry">
-          <h5>SNOWFLAKE LEADERS ROUNDTABLE OSAKA</h5>
-          <ul>
-            <li>『SHIONOGI データサイエンス部の思考と実践』</li>
-          </ul>
-        </div>
       </div>
-    </section>
-    <section class="year-slide">
-      <h3>2023年度</h3>
-
-
-      <div class="presentation-block">
-        <h4 class="block-title">🎤 各種登壇・講演</h4>
-
-        <div class="entry">
-          <h5>SAS Evolves</h5>
-          <ul>
-            <li>『対談：トラディショナルなSAS9ユーザーがSAS Viyaを活用してどのようにDXストーリーを歩み始めたのか？』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>Cloudera Evolves：DATA ANYWHERE, INNOVATION EVERYWHERE</h5>
-          <ul>
-            <li>『DX推進の要となるセントラルデータウェアハウスとデータマネジメントの取り組み』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>SNOWFLAKE DATA CLOUD WORLD TOUR TOKYO</h5>
-          <ul>
-            <li>『SHIONOGI データサイエンス部が取り組む仮説検証サイクルの思考と実践、その環境構築』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>ビジネス+IT主催 DX時代のデータ活用・分析2023夏</h5>
-          <ul>
-            <li>『データサイエンティストが創るビジネスとは？ーAI SAS Programmer の事例から学ぶー』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>セミナー：製薬企業におけるリアルワールドデータ分析手順・性質・現実差異と複数のデータベースの組み合わせ方法</h5>
-          <ul>
-            <li>『多様なデータベースの組み合わせによる価値創造 ―エビデンス/ビジネス構築・経営活用―』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>日本経済新聞社主催 情報システム部門のための戦略的データマネジメント</h5>
-          <ul>
-            <li>『ヘルスケア領域におけるデータエンジニアリング』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>製薬×データサイエンス Meetup 2023</h5>
-          <ul>
-            <li>『データサイエンスとヘルスケア – SHIONOGIによるウェアラブルデバイスを用いた近未来のストレス管理』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>ビジネス+IT主催 DX & AI Forum 2024 Winter 大阪</h5>
-          <ul>
-            <li>『データサイエンティストによるビジネス創造の留意点と今後のAI技術への期待と課題』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>セミナー：リアルワールドデータの製薬企業での活用事例と将来展望</h5>
-          <ul>
-            <li>『リアルワールドデータ利活用の実際と事例 ～入門編～』</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <h5>JBpress主催 2024 SPRING DX WEEK 第1回 データイノベーションフォーラム</h5>
-          <ul>
-            <li>『データに基づく仮説検証サイクルを実現するためのデータサイエンス機能のポイント』</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section class="year-slide">
-      <h3>2023年度</h3>
-
 
       <div class="presentation-block">
         <h4 class="block-title">📄 論文・特許</h4>
@@ -487,7 +303,6 @@
           <ul>
             <li>Wastewater-based reproduction numbers and projections of COVID-19 cases in multiple cities in Japan, <i>Eurosurveillance</i> (2024) （共同研究）</li>
             <li>Comparison of the incidence of severe outcomes in outpatients with COVID-19 or seasonal influenza without risk factors: Retrospective analysis of a health insurance claims-database, <i>Journal of Clinical Virology Plus</i> (2024) （共同研究）</li>
-            <li>Virtual reality perceptual training can improve the temporal discrimination ability of swinging during softball batting, <i>Front Sports Act Living</i> (2024) （共同研究）</li>
           </ul>
         </div>
 
@@ -498,20 +313,16 @@
             <li>データベース基礎技術：1件</li>
           </ul>
         </div>
-
-        <div class="entry">
-          <p>※ 他、外部発表、講演、投稿論文多数</p>
-        </div>
       </div>
-    </section>
-    
-    <section class="year-slide">
-      <h3>2022年度</h3>
-    
+    </div>
 
+    <!-- 2022年度 -->
+    <div id="year-2022" class="year-content">
+      <h3>2022年度</h3>
+      
       <div class="presentation-block">
-        <h4 class="block-title">SHIONOGI主催イベント</h4>
-    
+        <h4 class="block-title">🧪 SHIONOGI主催イベント</h4>
+        
         <div class="entry">
           <h5>SHIONOGI DATA SCIENCE FES 2023</h5>
           <ul>
@@ -525,11 +336,10 @@
           </ul>
         </div>
       </div>
-    
-  
+
       <div class="presentation-block">
-        <h4 class="block-title">学会発表・講演</h4>
-    
+        <h4 class="block-title">🧪 学会発表・講演</h4>
+        
         <div class="entry">
           <h5>人工知能学会 第36回全国大会</h5>
           <ul>
@@ -537,137 +347,52 @@
             <li>『ライフログからうつ病再発を予測するための機械学習アルゴリズムに関する予備検討』</li>
           </ul>
         </div>
-    
-        <div class="entry">
-          <h5>2022年度 統計関連学会連合大会</h5>
-          <ul>
-            <li>『ノンパラメトリックアプローチを用いた行動ログの違いから見るうつ病再発』</li>
-          </ul>
-        </div>
-    
+        
         <div class="entry">
           <h5>CBI学会2022年大会</h5>
           <ul>
             <li>『塩野義製薬におけるデータサイエンス部の取り組みとデータ活用基盤』</li>
           </ul>
         </div>
-    
-        <div class="entry">
-          <h5>PharmaSUG Japan 2021</h5>
-          <ul>
-            <li>『Building Business Intelligence Using Sales and Marketing Data and its Utilization』</li>
-          </ul>
-        </div>
-    
-        <div class="entry">
-          <h5>日本臨床試験学会 第14回学術集会総会</h5>
-          <ul>
-            <li>『医療情報データから見る COVID-19 の影響調査』（共同研究）</li>
-          </ul>
-        </div>
       </div>
-    </section>
-    
-    <section class="year-slide">
-      <h3>2022年度</h3>
-    
 
       <div class="presentation-block">
-        <h4 class="block-title">🎤 セミナー</h4>
-    
-        <div class="entry">
-          <h5>AWS Summit Online 2022</h5>
-          <ul>
-            <li>塩野義製薬における IT 施策とデータ活用の融合と推進</li>
-          </ul>
-        </div>
-    
-        <div class="entry">
-          <h5>製薬×データサイエンス Meetup 2022</h5>
-          <ul>
-            <li>感染症領域におけるデータサイエンスの取り組み</li>
-          </ul>
-        </div>
-    
-        <div class="entry">
-          <h5>製薬企業におけるリアルワールド活用・課題・実例 「データベース特性・解析」編</h5>
-          <ul>
-            <li>多様なデータベースの組み合わせによる価値創造</li>
-          </ul>
-        </div>
-    
-        <div class="entry">
-          <h5>Cloudera Evolve 2022</h5>
-          <ul>
-            <li>DX推進の要となるセントラルデータウェアハウスの進化と深化</li>
-          </ul>
-        </div>
-    
-        <div class="entry">
-          <h5>D-DRIVE データサイエンスセミナー</h5>
-          <ul>
-            <li>SHIONOGIにおけるデータサイエンスの取り組み</li>
-          </ul>
-        </div>
-      </div>
-    
-  
-      <div class="presentation-block">
         <h4 class="block-title">📄 論文・特許</h4>
-    
+        
         <div class="entry">
           <h5>論文（査読付）</h5>
           <ul>
             <li>Determination of optimal prevention strategy for COVID-19 based on multi-agent simulation, <i>Japanese Journal of Statistics and Data Science</i> (2022)</li>
           </ul>
         </div>
-    
-        <div class="entry">
-          <h5>論文</h5>
-          <ul>
-            <li>データ収集・集積のためのルール作りと周知徹底, PHARM STAGE（2022年12月号）</li>
-          </ul>
-        </div>
-    
-        <div class="entry">
-          <h5>特許出願中</h5>
-          <ul>
-            <li>ヘルスケア関係：1件（共同研究）</li>
-          </ul>
-        </div>
-    
+        
         <div class="entry">
           <p>※ 他、外部発表、講演、投稿論文多数</p>
         </div>
       </div>
-    </section>
-    <section class="year-slide">
+    </div>
+
+    <!-- 2021年度 -->
+    <div id="year-2021" class="year-content">
       <h3>2021年度</h3>
-    
+      
       <div class="presentation-block">
-        <h4 class="block-title">学会発表・講演</h4>
-    
+        <h4 class="block-title">🧪 学会発表・講演</h4>
+        
         <div class="entry">
           <h5>SAS Global Forum 2021</h5>
           <ul>
             <li>The Potential of Simulation Technologies : Multi Agent Simulation & Reinforcement Learning</li>
           </ul>
         </div>
-    
+        
         <div class="entry">
           <h5>PharmaSUG 2021</h5>
           <ul>
             <li>Why Data Scientists need leadership skills? Story of Cross-Value Chain Data Utilization Project</li>
           </ul>
         </div>
-    
-        <div class="entry">
-          <h5>PharmaSUG Japan 2021 Virtual Event</h5>
-          <ul>
-            <li>Data Scientist in Shionogi : Education, Skills & Training</li>
-          </ul>
-        </div>
-    
+        
         <div class="entry">
           <h5>第41回医療情報学連合大会</h5>
           <ul>
@@ -675,168 +400,77 @@
             <li>少数枚の医用画像による画像認識モデル構築方法の検討</li>
           </ul>
         </div>
-    
-        <div class="entry">
-          <h5>第431回CBI学会講演会</h5>
-          <ul>
-            <li>塩野義製薬におけるバリューチェーン横断型データ利活用について</li>
-          </ul>
-        </div>
       </div>
-    </section>
-    <section class="year-slide">
-      <h3>2021年度</h3>
-    
-
-      <div class="presentation-block">
-        <h4 class="block-title">🎤 セミナー</h4>
-    
-        <div class="entry">
-          <h5>PharmaSUG Japan 2021 Virtual Event</h5>
-          <ul>
-            <li>『データサイエンス入門～仮説思考の鍛錬～　ハンズオントレーニング講師』</li>
-          </ul>
-        </div>
-    
-        <div class="entry">
-          <h5>AWS主催 関西地域におけるクラウド活用への挑戦</h5>
-          <ul>
-            <li>『塩野義製薬のDX推進におけるデータ利活用の現状と今後』</li>
-          </ul>
-        </div>
-    
-        <div class="entry">
-          <h5>Cloudera Sessions 2021</h5>
-          <ul>
-            <li>『データレイクはDXの源泉となるのか？ バリューチェーン横断型データ利活用を考える』</li>
-          </ul>
-        </div>
-    
-        <div class="entry">
-          <h5>製薬業界のコマーシャル領域における国内外のAWS活用事例ご紹介</h5>
-          <ul>
-            <li>『塩野義製薬のDX推進におけるデータ利活用の現状と今後 コンテンツ追加版』</li>
-          </ul>
-        </div>
-      </div>
-    
 
       <div class="presentation-block">
         <h4 class="block-title">📄 論文・特許</h4>
-    
-        <div class="entry">
-          <h5>論文（査読付）</h5>
-          <ul>
-            <li>医学研究に二次利用する医療情報データの特徴と性質を把握すべき意義, <i>日本臨床試験学会雑誌</i> (2022)（共同研究）</li>
-            <li>Simplified Virtual Reality System Can Be Used to Evaluate the Temporal Discrimination Ability in Softball Batting as in the Real Environment, <i>Front. Sports Act. Living</i> (2022)（共同研究）</li>
-          </ul>
-        </div>
-    
+        
         <div class="entry">
           <h5>PCT国際出願中</h5>
           <ul>
             <li>人工知能解析プログラマシステム</li>
           </ul>
         </div>
-    
+        
         <div class="entry">
           <p>※ 他、外部発表、講演、投稿論文多数</p>
         </div>
       </div>
-    </section>
-    <section class="year-slide">
-      <h3>2020年度</h3>
-    
+    </div>
 
+    <!-- 2020年度 -->
+    <div id="year-2020" class="year-content">
+      <h3>2020年度</h3>
+      
       <div class="presentation-block">
-        <h4 class="block-title">学会発表・講演</h4>
-    
+        <h4 class="block-title">🧪 学会発表・講演</h4>
+        
         <div class="entry">
           <h5>人工知能学会 第34回全国大会</h5>
           <ul>
             <li>『ウェアラブル端末データと欠測パターンからの行動リズムの考察』</li>
           </ul>
         </div>
-    
-        <div class="entry">
-          <h5>2020年度統計関連学会連合大会</h5>
-          <ul>
-            <li>『女子ソフトボール部スコアブックデータへの機械学習的アプローチ』</li>
-          </ul>
-        </div>
-    
+        
         <div class="entry">
           <h5>SAS Global Forum 2020</h5>
           <ul>
             <li>Transfer Learning for Mining Digital Phenotype by SAS® Viya®</li>
           </ul>
         </div>
-    
+        
         <div class="entry">
           <h5>SAS Forum Japan 2020</h5>
           <ul>
             <li>医薬品・ヘルスケア業界におけるデータサイエンスと統合解析環境</li>
           </ul>
         </div>
-    
-        <div class="entry">
-          <h5>PharmaSUG Japan 2020 Virtual Event</h5>
-          <ul>
-            <li>Skill Building of Modeling & Simulation and its Applications</li>
-          </ul>
-        </div>
       </div>
-    </section>
-    
-        
-    <section class="year-slide">
-      <h3>2020年度</h3>
-    
-
-      <div class="presentation-block">
-        <h4 class="block-title">🎤 セミナー</h4>
-    
-        <div class="entry">
-          <ul>
-            <li>データサイエンスが拓く次世代R&D</li>
-            <li>医薬品・ヘルスケア業界におけるデータサイエンスと人工知能技術</li>
-          </ul>
-        </div>
-      </div>
-    
 
       <div class="presentation-block">
         <h4 class="block-title">📄 論文・執筆・特許</h4>
-    
+        
         <div class="entry">
           <h5>論文（査読付）</h5>
           <ul>
             <li>Patient journey through cases of depression from claims database using machine learning algorithms, <i>PLOS ONE</i> (2021)</li>
-            <li>Reconstructing the household transmission of influenza in the suburbs of Tokyo based on clinical cases, <i>Theoretical Biology and Medical Modelling</i> (2021)（共同研究）</li>
           </ul>
         </div>
-    
-        <div class="entry">
-          <h5>執筆活動</h5>
-          <ul>
-            <li>『リアルワールドデータの使用目的に応じた解析手法 -各データベースの選択と組み合わせ-』サイエンス＆テクノロジー（一部執筆）</li>
-          </ul>
-        </div>
-    
+        
         <div class="entry">
           <h5>特許出願中</h5>
           <ul>
             <li>人工知能解析プログラマシステム</li>
           </ul>
         </div>
-    
+        
         <div class="entry">
           <p>※ 他、外部発表、講演、投稿論文多数</p>
         </div>
       </div>
-    </section>
+    </div>
+
   </div>
-  <button class="scroll-btn right" onclick="scrollSlides('right')">&#10095;</button>
 </div>
 
 <script>
@@ -849,19 +483,42 @@
       section.style.display = "none";
       btn.textContent = "社外発表実績を知りたい方はこちら（臨床研究を除くデータサイエンス関連のトピック）";
     } else {
-      section.style.display = "flex";
+      section.style.display = "block";
       btn.textContent = "社外発表実績を閉じる";
+      
+      // 開いた後に少し下にスクロール
+      setTimeout(() => {
+        section.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }, 100);
     }
   }
 
-  function scrollSlides(direction) {
-    const scrollContainer = document.getElementById('presentation-scroll');
-    const scrollAmount = window.innerWidth * 0.8;
+  function switchYear(targetYear) {
+    // 全てのタブからactiveクラスを削除
+    const allTabs = document.querySelectorAll('.tab-btn');
+    allTabs.forEach(tab => {
+      tab.classList.remove('active');
+    });
 
-    if (direction === 'left') {
-      scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    } else {
-      scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    // 全てのコンテンツを非表示
+    const allContents = document.querySelectorAll('.year-content');
+    allContents.forEach(content => {
+      content.classList.remove('active');
+    });
+
+    // 選択されたタブにactiveクラスを追加
+    const selectedTab = document.querySelector(`[data-year="${targetYear}"]`);
+    if (selectedTab) {
+      selectedTab.classList.add('active');
+    }
+
+    // 選択された年度のコンテンツを表示
+    const selectedContent = document.getElementById(`year-${targetYear}`);
+    if (selectedContent) {
+      selectedContent.classList.add('active');
     }
   }
 </script>

@@ -37,19 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, 800);
 
-  function showYear(target) {
-    const allBlocks = document.querySelectorAll(".presentation-block");
-    allBlocks.forEach((block) => {
-      block.style.display = (target === "all" || block.id === `year-${target}`) ? "block" : "none";
-    });
-  }
+  // 削除: 古い showYear 関数は新しいタブ形式では不要
+  // 新しい switchYear 関数は presentations.html 内で定義済み
 
-  showYear("all");
-  window.showYear = showYear;
 });
 
 // toggleAboutDetail は外側で定義してOK
 function toggleAboutDetail() {
   const el = document.getElementById("aboutus-detail-text");
-  el.classList.toggle("open");
+  if (el) {
+    el.classList.toggle("open");
+  }
 }
