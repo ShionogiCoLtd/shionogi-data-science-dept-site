@@ -1,28 +1,18 @@
-
-<div class="parallax-wrapper banner">
-  <div class="parallax-background" style="background-image: url('{{ site.baseurl }}/img/aboutus/people1.png');"></div>
-  <div class="parallax-foreground text-container">
-    <div class="letter-group">
-      <span class="letter">S</span><span class="letter">h</span><span class="letter">i</span><span class="letter">o</span><span class="letter">n</span><span class="letter">o</span><span class="letter">g</span><span class="letter">i</span>
-      <span class="letter-space"></span>
-      <span class="letter">D</span><span class="letter">a</span><span class="letter">t</span><span class="letter">a</span>
-      <span class="letter-space"></span>
-      <span class="letter">S</span><span class="letter">c</span><span class="letter">i</span><span class="letter">e</span><span class="letter">n</span><span class="letter">c</span><span class="letter">e</span>
-      <span class="letter-space"></span>
-      <span class="letter">D</span><span class="letter">e</span><span class="letter">p</span><span class="letter">a</span><span class="letter">r</span><span class="letter">t</span><span class="letter">m</span><span class="letter">e</span><span class="letter">n</span><span class="letter">t</span>
+<section class="aboutus-banner" id="aboutusBanner">
+    <div class="aboutus-banner-container">
+        <!-- Left Side: Text Content -->
+        <div class="aboutus-banner-text">
+            <h2 class="aboutus-banner-title">
+                <span class="title-shionogi">SHIONOGI</span>
+            </h2>
+            <h3 class="aboutus-banner-subtitle">Data Science</h3>
+        </div>
+        
+        <!-- Right Side: Data Visualization -->
+        <div class="aboutus-banner-visual">
+            <canvas id="dataVisualizationCanvas"></canvas>
+            <!-- Red Diagonal Accent -->
+            <div class="red-accent"></div>
+        </div>
     </div>
-  </div>
-</div>
-
-<script>
-  window.addEventListener("load", function () {
-    const letters = document.querySelectorAll(".letter");
-    letters.forEach((el, i) => {
-      setTimeout(() => {
-        el.classList.add("loaded");
-      }, i * 50); // 50ms間隔で順番に表示
-    });
-  });
-</script>
-
-
+</section>

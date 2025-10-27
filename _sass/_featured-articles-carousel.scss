@@ -1,0 +1,354 @@
+// ===================================
+// Featured Articles Carousel
+// 記事サムネイルが左から右に流れるセクション
+// コンパクト版（文字サイズ縮小・サブタイトル非表示）
+// ===================================
+
+.featured-articles-carousel {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    padding: 60px 0;
+    overflow: hidden;
+    
+    // バナーがあるページでの配置調整
+    body.has-banner & {
+        margin-top: -30px;  // バナーとの間隔を詰める
+    }
+    
+    @media (max-width: 768px) {
+        padding: 40px 0;
+    }
+    
+    @media (max-width: 480px) {
+        padding: 30px 0;
+    }
+}
+
+// カルーセルコンテナ
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    
+    // 左右にフェードアウト効果
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        z-index: 2;
+        pointer-events: none;
+        
+        @media (max-width: 768px) {
+            width: 40px;
+        }
+        
+        @media (max-width: 480px) {
+            width: 20px;
+        }
+    }
+    
+    &::before {
+        left: 0;
+        background: linear-gradient(to right, 
+            rgba(255, 255, 255, 1) 0%, 
+            rgba(255, 255, 255, 0) 100%
+        );
+    }
+    
+    &::after {
+        right: 0;
+        background: linear-gradient(to left, 
+            rgba(255, 255, 255, 1) 0%, 
+            rgba(255, 255, 255, 0) 100%
+        );
+    }
+}
+
+// カルーセルトラック（スクロールする部分）
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    animation: scroll-left 15s linear infinite;
+    will-change: transform;
+    
+    // ホバーでアニメーション一時停止
+    &:hover {
+        animation-play-state: paused;
+    }
+    
+    @media (max-width: 768px) {
+        gap: 15px;
+        animation-duration: 12s;
+    }
+    
+    @media (max-width: 480px) {
+        gap: 12px;
+        animation-duration: 10s;
+    }
+}
+
+// スクロールアニメーション
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+// 個別のカルーセルアイテム
+.carousel-item {
+    flex: 0 0 auto;
+    width: 280px;
+    height: 158px;
+    position: relative;
+    
+    @media (max-width: 1024px) {
+        width: 250px;
+        height: 141px;
+    }
+    
+    @media (max-width: 768px) {
+        width: 220px;
+        height: 124px;
+    }
+    
+    @media (max-width: 480px) {
+        width: 180px;
+        height: 101px;
+    }
+}
+
+// リンク全体
+.carousel-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+// 画像ラッパー
+.carousel-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    
+    &:hover {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        transform: translateY(-3px);
+    }
+}
+
+// 画像本体（全体表示対応）
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #f5f5f5;
+    transition: transform 0.3s ease;
+    
+    .carousel-image-wrapper:hover & {
+        transform: scale(1.03);
+    }
+}
+
+// ホバー時のオーバーレイ（より濃く）
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.85) 40%,
+        rgba(0, 0, 0, 0.95) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 15px;  // 20px → 15px（パディングを減らす）
+    
+    .carousel-image-wrapper:hover & {
+        opacity: 1;
+    }
+    
+    @media (max-width: 768px) {
+        padding: 12px;
+    }
+    
+    @media (max-width: 480px) {
+        padding: 10px;
+    }
+}
+
+// オーバーレイコンテンツ
+.carousel-content {
+    width: 100%;
+    color: #ffffff !important;
+    transform: translateY(10px);  // 15px → 10px（控えめに）
+    transition: transform 0.3s ease;
+    
+    .carousel-image-wrapper:hover & {
+        transform: translateY(0);
+    }
+    
+    // すべての子要素も強制的に白色に
+    * {
+        color: #ffffff !important;
+    }
+}
+
+// 日付（コンパクト・白色・強制）
+.carousel-date {
+    font-size: 0.65rem;  // 0.75rem → 0.65rem（さらに小さく）
+    margin: 0 0 4px 0;   // 6px → 4px（マージン縮小）
+    color: #ffffff !important;
+    opacity: 0.9;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    
+    @media (max-width: 768px) {
+        font-size: 0.6rem;
+        margin: 0 0 3px 0;
+    }
+    
+    @media (max-width: 480px) {
+        font-size: 0.55rem;
+        margin: 0 0 2px 0;
+    }
+}
+
+// タイトル（小さく・折り返し対応・白色・強制）
+.carousel-title {
+    font-size: 0.85rem;  // 1rem → 0.85rem（15%縮小）
+    font-weight: 700;
+    margin: 0 0 5px 0;   // 8px → 5px（マージン縮小）
+    line-height: 1.3;
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    
+    // 長いタイトルは3行まで表示
+    display: -webkit-box;
+    -webkit-line-clamp: 3;  // 2 → 3（3行まで表示）
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;  // 長い単語も折り返す
+    
+    @media (max-width: 768px) {
+        font-size: 0.8rem;   // 0.95rem → 0.8rem
+        margin: 0 0 4px 0;
+        -webkit-line-clamp: 2;  // 2行まで
+    }
+    
+    @media (max-width: 480px) {
+        font-size: 0.75rem;  // 0.9rem → 0.75rem
+        margin: 0 0 3px 0;
+        -webkit-line-clamp: 2;  // 2行まで
+    }
+}
+
+// サブタイトル（完全非表示）
+.carousel-subtitle {
+    display: none !important;  // 完全に非表示
+}
+
+// 抜粋（非表示）
+.carousel-excerpt {
+    display: none !important;  // 完全に非表示
+}
+
+// タグ（コンパクト）
+.carousel-tags {
+    display: flex;
+    gap: 4px;  // 6px → 4px（間隔を詰める）
+    flex-wrap: wrap;
+    max-height: 22px;  // タグの高さを制限
+    overflow: hidden;  // はみ出したタグは非表示
+}
+
+.carousel-tag {
+    display: inline-block;
+    padding: 2px 8px;    // 3px 10px → 2px 8px（さらに小さく）
+    background: rgba(229, 1, 18, 0.95);
+    border-radius: 10px;  // 12px → 10px
+    font-size: 0.6rem;   // 0.7rem → 0.6rem（さらに小さく）
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    color: #ffffff !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    
+    @media (max-width: 768px) {
+        padding: 2px 6px;
+        font-size: 0.55rem;
+    }
+    
+    @media (max-width: 480px) {
+        padding: 1px 5px;
+        font-size: 0.5rem;
+    }
+}
+
+// ===================================
+// さらに詳細度を高めたセレクタ
+// 他のスタイルを完全に上書き
+// ===================================
+
+// カルーセル内のすべてのh1-h6を白色に
+.featured-articles-carousel {
+    h1, h2, h3, h4, h5, h6 {
+        color: #ffffff !important;
+    }
+    
+    // カルーセル内のすべてのpを白色に
+    p {
+        color: #ffffff !important;
+    }
+    
+    // カルーセル内のすべてのspanを白色に
+    span {
+        color: #ffffff !important;
+    }
+    
+    // カルーセル内のすべてのaリンクを白色に
+    a {
+        color: #ffffff !important;
+        text-decoration: none !important;
+    }
+}
+
+// オーバーレイ内の特定要素を強制的に白色に
+.carousel-overlay {
+    h1, h2, h3, h4, h5, h6,
+    p, span, a, div {
+        color: #ffffff !important;
+    }
+}
+
+// ===================================
+// パフォーマンス最適化
+// ===================================
+
+// GPUアクセラレーションを有効化
+.carousel-track {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+// 画像の読み込み最適化
+.carousel-image {
+    will-change: transform;
+}

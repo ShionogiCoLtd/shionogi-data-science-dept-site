@@ -1,120 +1,231 @@
-$text-fade-up: 200px;
-$text-fall-down: -400px;
-$delay-unit: 0.5ms;
-$duration: 0.8s;
+// ===================================
+// About Us Banner - Modern Data Science Design
+// PC: Full design with grid animation
+// Mobile: Simple elegant design with diagonal accent
+// Text Position: Lower adjustment
+// ===================================
 
-
-.parallax-wrapper {
-  position: relative;
-  height: 80vh;
-  overflow: hidden;
+.aboutus-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(135deg, 
+        #f5f5f5 0%,
+        #e8eef2 100%
+    );
+    overflow: hidden;
+    z-index: 1;
+    
+    @media (max-width: 768px) {
+        height: 240px;
+        background: #f0f0f0;
+    }
+    
+    @media (max-width: 480px) {
+        height: 220px;
+    }
+    
+    // Container for layout
+    .aboutus-banner-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 40px 40px 40px;
+        height: 100%;
+        
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 0 30px;
+        }
+        
+        @media (max-width: 480px) {
+            padding: 0 25px;
+        }
+    }
+    
+    // ===================================
+    // Text Content
+    // ===================================
+    .aboutus-banner-text {
+        flex: 0 0 45%;
+        z-index: 3;
+        padding-right: 40px;
+        
+        @media (max-width: 768px) {
+            flex: 0 0 auto;
+            width: auto;
+            padding-right: 0;
+            text-align: left;
+            position: relative;
+            top: 70px;  // 下に移動
+        }
+        
+        @media (max-width: 480px) {
+            top: 15px;  // スマホも下に
+        }
+    }
+    
+    .aboutus-banner-title {
+        font-size: 4rem;
+        font-weight: 700;
+        margin: 0 0 15px 0;
+        letter-spacing: 2px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+        @media (max-width: 768px) {
+            font-size: 2rem;
+            margin: 0 0 6px 0;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 480px) {
+            font-size: 1.8rem;
+            margin: 0 0 5px 0;
+        }
+        
+        @media (max-width: 360px) {
+            font-size: 1.5rem;
+        }
+        
+        .title-shionogi {
+            color: #1a1a1a;
+            display: block;
+        }
+    }
+    
+    .aboutus-banner-subtitle {
+        font-size: 3rem;
+        font-weight: 600;
+        margin: 0;
+        color: #1a1a1a;
+        letter-spacing: 1px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+        @media (max-width: 768px) {
+            font-size: 1.6rem;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 480px) {
+            font-size: 1.4rem;
+        }
+        
+        @media (max-width: 360px) {
+            font-size: 1.2rem;
+        }
+    }
+    
+    // ===================================
+    // Visual Elements
+    // ===================================
+    .aboutus-banner-visual {
+        flex: 0 0 55%;
+        position: relative;
+        height: 100%;
+        z-index: 1;
+        
+        @media (max-width: 768px) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            flex: none;
+            z-index: 1;
+        }
+    }
+    
+    // Red Diagonal Accent
+    .red-accent {
+        position: absolute;
+        top: 0;
+        right: -100px;
+        width: 500px;
+        height: 100%;
+        background: linear-gradient(135deg, 
+            rgba(229, 1, 18, 0.9) 0%,
+            rgba(200, 16, 46, 0.8) 100%
+        );
+        transform: skewX(-15deg);
+        z-index: 2;
+        
+        @media (max-width: 768px) {
+            width: 30%;
+            right: -5%;
+            top: 0;
+            height: 100%;
+            transform: skewX(-15deg);
+            background: linear-gradient(135deg, 
+                rgba(229, 1, 18, 0.95) 0%,
+                rgba(200, 16, 46, 0.9) 100%
+            );
+        }
+        
+        @media (max-width: 480px) {
+            width: 45%;
+            right: -8%;
+            transform: skewX(-12deg);
+        }
+    }
+    
+    // Canvas for data visualization (PC only)
+    #dataVisualizationCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
 }
 
-.parallax-background {
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-
-  
-  --brightness-value: 0.5;
-  filter: brightness(var(--brightness-value));
-  transition: filter 0.3s ease-out;
+// ===================================
+// Main Content Area
+// デフォルト: バナーなし（記事ページなど）
+// ===================================
+.main-content {
+    position: relative;
+    z-index: 10;
+    background: #ffffff;
+    
+    // デフォルトではマージンなし
+    margin-top: 0;
+    
+    .container {
+        @media (max-width: 768px) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
 }
 
-@media (max-width: 768px) {
-  .parallax-background {
-    background-position: top center; 
-    background-attachment: scroll;    
-    background-size: cover;      
-    filter: brightness(0.7);
-    padding-top: 30rem;          
-  }
-
-  .parallax-wrapper {
-    height: 20vh; 
-  }
-}
-
-
-.parallax-foreground {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  text-align: center;
-  padding: 1rem;
-  flex-direction: column;
-  color: white;
-
-  
-  font-family: 'Segoe UI', 'Meiryo UI', sans-serif;
-
-  font-size: clamp(2rem, 3vw, 3.5rem);
-  font-weight: 700;
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
-}
-
-
-.reg-text {
-  display: block;
-  margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateY($text-fade-up);
-  transition: transform $duration ease-out, opacity $duration ease;
-
-  &.loaded {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.letter-group {
-  display: inline-block;
-  letter-spacing: 0; 
-}
-
-.letter {
-  display: inline-block;
-  opacity: 0;
-  filter: blur(5px);
-  transform: translateY($text-fall-down);
-  transition: transform $duration ease, opacity $duration ease, filter $duration ease;
-  font-size: 4rem;
-  font-weight: 700;
-  font-family: 'Segoe UI', 'Meiryo UI', sans-serif; 
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-
-  &.loaded {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
-.letter-space {
-  display: inline-block;
-  width: 0.2em;
-  height: 1em;
-  font-size: 2.5rem;
-  line-height: 1;
-  font-family: 'Segoe UI', 'Meiryo UI', sans-serif;
-
-  @media (max-width: 768px) {
-    font-size: 0.5rem;
-    width: 0.2em;   
-  }
+// ===================================
+// バナーがあるページのみスタイル適用
+// body.has-banner クラスが付与されている場合
+// ===================================
+body.has-banner .main-content {
+    margin-top: 600px;  // バナーの高さ分のマージン
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+    
+    @media (max-width: 768px) {
+        margin-top: 240px;
+    }
+    
+    @media (max-width: 480px) {
+        margin-top: 220px;
+    }
 }
