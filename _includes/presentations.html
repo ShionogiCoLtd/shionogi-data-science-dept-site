@@ -1,3 +1,52 @@
+<!-- モバイル専用スタイル -->
+<style>
+  @media (max-width: 768px) {
+    /* トグルボタンのフォントサイズと余白調整 */
+    .toggle-button-wrapper {
+      padding: 0.5rem 1rem !important;
+      margin-top: 1rem !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    #toggle-presentation-btn,
+    button.button.is-danger.is-outlined {
+      font-size: 0.75rem !important;
+      padding: 0.5rem 0.75rem !important;
+      border-radius: 1.5rem !important;
+      white-space: normal !important;
+      line-height: 1.35 !important;
+      height: auto !important;
+      min-height: auto !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      width: auto !important;
+      max-width: 100% !important;
+    }
+
+    /* タブボタンを横並びに（2行） */
+    .year-tabs {
+      flex-direction: row !important;
+      justify-content: center !important;
+      gap: 0.35rem !important;
+    }
+
+    .tab-btn {
+      width: auto !important;
+      max-width: none !important;
+      min-width: auto !important;
+      padding: 0.5rem 0.6rem !important;
+      font-size: 0.7rem !important;
+      flex: 0 0 auto;
+    }
+
+    /* 2025年度を1行目に配置、他を2行目に */
+    .tab-btn[data-year="2025"] {
+      flex-basis: 100% !important;
+      margin-bottom: 0.35rem !important;
+    }
+  }
+</style>
+
 <div class="toggle-button-wrapper">
   <button id="toggle-presentation-btn" class="button is-danger is-outlined" onclick="togglePresentation()">
     社外発表実績を知りたい方はこちら（臨床研究を除くデータサイエンス関連のトピック）

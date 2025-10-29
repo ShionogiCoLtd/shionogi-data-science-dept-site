@@ -123,15 +123,14 @@
   }
 
   ul {
-    list-style: disc;  // 標準の箇条書き記号を使用
-    padding-left: 1.5rem;  // 標準の左パディング
+    list-style: disc;
+    padding-left: 1.5rem;
     color: #555;
     font-size: 0.95rem;
     line-height: 1.6;
 
     li {
       margin-bottom: 0.5rem;
-      // 疑似要素を完全に削除（:beforeを使わない）
 
       &:last-child {
         margin-bottom: 0;
@@ -191,17 +190,27 @@
     margin: 0 1rem;
   }
 
+  // タブを横並びに（2行レイアウト）
   .year-tabs {
-    flex-direction: column;
-    gap: 0.75rem;
-    align-items: center;
+    flex-direction: row !important;
+    justify-content: center;
+    gap: 0.35rem !important;
+    flex-wrap: wrap;
   }
 
   .tab-btn {
-    width: 100%;
-    max-width: 200px;
-    padding: 1rem;
-    font-size: 1rem;
+    width: auto !important;
+    max-width: none !important;
+    min-width: auto !important;
+    padding: 0.5rem 0.6rem !important;
+    font-size: 0.7rem !important;
+    flex: 0 0 auto;
+  }
+
+  // 2025年度を1行目に単独配置
+  .tab-btn[data-year="2025"] {
+    flex-basis: 100% !important;
+    margin-bottom: 0.25rem !important;
   }
 
   .year-content h3 {
@@ -249,6 +258,12 @@
   .presentation-container {
     margin: 0 0.5rem;
     padding: 0.75rem;
+  }
+
+  // さらに小さい画面用の調整
+  .tab-btn {
+    padding: 0.45rem 0.5rem !important;
+    font-size: 0.65rem !important;
   }
 
   .year-content h3 {

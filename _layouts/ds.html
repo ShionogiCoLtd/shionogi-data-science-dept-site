@@ -2,21 +2,282 @@
 layout: default
 ---
 
-<article class="ds-article">
-  <section class="ds-header">
-    <h1 class="title">{{ page.title }}</h1>
-    <p>{{ page.date | date: "%Y年%-m月%-d日" }}</p>
+<!-- Bulmaと他のCSSをオーバーライドするスタイル -->
+<style>
+  /* モバイル専用：画面いっぱいに表示 */
+  @media (max-width: 768px) {
+    /* Bulmaのcontainerを強制的に無効化 */
+    body .container,
+    body .section,
+    body main,
+    body #main-content {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      max-width: 100% !important;
+    }
+    
+    /* イベントレポート全体 */
+    .ds-event-report {
+      margin: 0 !important;
+      padding: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+    
+    /* ヒーローセクションを画面幅いっぱいに */
+    .ds-hero {
+      margin-left: calc(-50vw + 50%) !important;
+      margin-right: calc(-50vw + 50%) !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+    }
+    
+    /* コンテンツラッパーも画面幅いっぱいに */
+    .ds-content-wrapper {
+      margin-left: calc(-50vw + 50%) !important;
+      margin-right: calc(-50vw + 50%) !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+    }
+    
+    .ds-container {
+      padding: 1rem 0.5rem !important;
+      margin: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+    
+    .ds-markdown-content {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+</style>
+
+<!-- イベントレポート用レイアウト（完全版） -->
+<article class="ds-event-report">
+  
+  <!-- ヒーローセクション -->
+  <section class="ds-hero">
+    <div class="ds-hero-content">
+      <h1 class="ds-hero-title">{{ page.title }}</h1>
+      {% if page.event_date %}
+      <div class="ds-hero-meta">
+        <span class="ds-meta-item">
+          <svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          {{ page.event_date }}
+        </span>
+        {% if page.event_location %}
+        <span class="ds-meta-item">
+          <svg class="ds-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          {{ page.event_location }}
+        </span>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
   </section>
 
-  <section class="ds-content">
-    {{ content }}
-  </section>
-
-  {% if page.tags %}
-  <div class="ds-tags">
-    {% for tag in page.tags %}
-      <span class="tag is-danger is-light">{{ tag }}</span>
-    {% endfor %}
+  <!-- メインコンテンツ -->
+  <div class="ds-content-wrapper">
+    <div class="ds-container">
+      <div class="ds-markdown-content">
+        {{ content }}
+      </div>
+    </div>
   </div>
-  {% endif %}
+
 </article>
+
+<!-- アコーディオン変換スクリプト -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const content = document.querySelector('.ds-markdown-content');
+  if (!content) return;
+
+  // h2レベルでセクションをグループ化（最初の2つのh2はスキップ）
+  const h2Headings = Array.from(content.querySelectorAll('h2'));
+  let skipCount = 0;
+  
+  h2Headings.forEach((h2, h2Index) => {
+    const h2Text = h2.textContent.trim();
+    
+    // 最初の2つのh2（タイトルとサブタイトル）はスキップ
+    if (skipCount < 2) {
+      skipCount++;
+      return;
+    }
+
+    // h2の次の要素から次のh2までを取得
+    const sectionElements = [];
+    let currentEl = h2.nextElementSibling;
+    
+    while (currentEl && currentEl.tagName !== 'H2') {
+      sectionElements.push(currentEl);
+      currentEl = currentEl.nextElementSibling;
+    }
+
+    // 導入段落（最初のpタグ）を取得
+    const introText = sectionElements.find(el => el.tagName === 'P');
+    
+    // h3見出しを収集し、動画の有無をチェック
+    const h3Headings = sectionElements.filter(el => el.tagName === 'H3');
+    const speakerList = h3Headings.map(h3 => {
+      const h3Text = h3.textContent.trim();
+      
+      // このh3の後に動画があるかチェック
+      let hasVideo = false;
+      let nextEl = h3.nextElementSibling;
+      
+      // 次のh3までの要素をチェック
+      while (nextEl && nextEl.tagName !== 'H3') {
+        if (nextEl.tagName === 'IFRAME' || 
+            nextEl.querySelector('iframe') ||
+            nextEl.classList.contains('ds-video')) {
+          hasVideo = true;
+          break;
+        }
+        nextEl = nextEl.nextElementSibling;
+      }
+      
+      return {
+        text: h3Text,
+        hasVideo: hasVideo
+      };
+    });
+
+    // セクションヘッダーカードを作成
+    const sectionCard = document.createElement('div');
+    sectionCard.className = 'ds-section-card';
+    
+    const sectionHeader = document.createElement('div');
+    sectionHeader.className = 'ds-section-header';
+    
+    const sectionTitle = document.createElement('h2');
+    sectionTitle.className = 'ds-section-title';
+    sectionTitle.textContent = h2Text;
+    
+    const sectionIntro = document.createElement('p');
+    sectionIntro.className = 'ds-section-intro';
+    sectionIntro.textContent = introText ? introText.textContent.trim() : '';
+    
+    // 講演者リストを作成
+    const speakerListEl = document.createElement('div');
+    speakerListEl.className = 'ds-speaker-list';
+    
+    speakerList.forEach(speaker => {
+      const speakerItem = document.createElement('div');
+      speakerItem.className = 'ds-speaker-item';
+      
+      const speakerIcon = document.createElement('span');
+      speakerIcon.className = 'ds-speaker-icon';
+      // 動画の有無でアイコンを変更
+      speakerIcon.innerHTML = speaker.hasVideo ? '🎥' : '📄';
+      
+      const speakerName = document.createElement('span');
+      speakerName.className = 'ds-speaker-name-preview';
+      speakerName.textContent = speaker.text;
+      
+      speakerItem.appendChild(speakerIcon);
+      speakerItem.appendChild(speakerName);
+      speakerListEl.appendChild(speakerItem);
+    });
+    
+    const expandButton = document.createElement('button');
+    expandButton.className = 'ds-expand-button';
+    expandButton.innerHTML = `
+      <span class="ds-expand-text">詳細を見る</span>
+      <svg class="ds-expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    `;
+    
+    sectionHeader.appendChild(sectionTitle);
+    sectionHeader.appendChild(sectionIntro);
+    sectionHeader.appendChild(speakerListEl);
+    sectionHeader.appendChild(expandButton);
+    
+    // セクションコンテンツを作成
+    const sectionContent = document.createElement('div');
+    sectionContent.className = 'ds-section-content';
+    
+    const sectionBody = document.createElement('div');
+    sectionBody.className = 'ds-section-body';
+    
+    // 導入段落以外の要素を移動
+    sectionElements.forEach((el, index) => {
+      if (index === 0 && el.tagName === 'P') {
+        // 最初のpは既にヘッダーに表示済みなのでスキップ
+        el.remove();
+      } else {
+        sectionBody.appendChild(el);
+      }
+    });
+    
+    sectionContent.appendChild(sectionBody);
+    
+    // 組み立て
+    sectionCard.appendChild(sectionHeader);
+    sectionCard.appendChild(sectionContent);
+    
+    // h2の前に挿入
+    h2.parentNode.insertBefore(sectionCard, h2);
+    h2.remove();
+    
+    // クリックイベント
+    expandButton.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isActive = sectionCard.classList.contains('ds-section-active');
+      
+      if (isActive) {
+        sectionCard.classList.remove('ds-section-active');
+        expandButton.querySelector('.ds-expand-text').textContent = '詳細を見る';
+      } else {
+        sectionCard.classList.add('ds-section-active');
+        expandButton.querySelector('.ds-expand-text').textContent = '閉じる';
+      }
+    });
+  });
+
+  // 動画のレスポンシブ対応
+  content.querySelectorAll('iframe').forEach(iframe => {
+    if (!iframe.closest('.ds-video-wrapper')) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'ds-video-wrapper';
+      iframe.parentNode.insertBefore(wrapper, iframe);
+      wrapper.appendChild(iframe);
+    }
+  });
+
+  // スクロールアニメーション
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('ds-visible');
+      }
+    });
+  }, observerOptions);
+
+  content.querySelectorAll('.ds-section-card').forEach(el => {
+    el.classList.add('ds-fade-in');
+    observer.observe(el);
+  });
+});
+</script>

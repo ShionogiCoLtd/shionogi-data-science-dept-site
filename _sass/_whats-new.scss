@@ -42,7 +42,7 @@
 .expanding-bg-1 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle at center, #d80c24, transparent 70%);
+  background: radial-gradient(circle at center, #E50112, transparent 70%);
   top: -100px;
   right: -50px;
   transition-delay: 0s;
@@ -105,7 +105,7 @@
 .title-underline {
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #d80c24 0%, #ff4d5e 100%);
+  background: linear-gradient(90deg, #E50112 0%, #ff4d5e 100%);
   margin: 0 auto;
   border-radius: 2px;
 }
@@ -131,7 +131,7 @@
 }
 
 .news-item:hover {
-  box-shadow: 0 2px 8px rgba(216, 12, 36, 0.12);
+  box-shadow: 0 2px 8px rgba(229, 1, 18, 0.12);
   transform: translateY(-1px);
 }
 
@@ -184,7 +184,7 @@
 }
 
 .news-link:hover {
-  background-color: rgba(216, 12, 36, 0.02);
+  background-color: rgba(229, 1, 18, 0.02);
 }
 
 /* ===========================
@@ -195,11 +195,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #d80c24 0%, #b00a1d 100%);
+  background: linear-gradient(135deg, #E50112 0%, #b00110 100%);
   border-radius: 6px;
   padding: 0.38rem 0.6rem !important;
   min-width: 105px;
-  box-shadow: 0 1px 3px rgba(216, 12, 36, 0.2);
+  box-shadow: 0 1px 3px rgba(229, 1, 18, 0.2);
   flex-shrink: 0;
 }
 
@@ -237,7 +237,7 @@
 }
 
 .whats-new-section .news-link:hover .news-title {
-  color: #d80c24 !important;
+  color: #E50112 !important;
 }
 
 /* ===========================
@@ -253,12 +253,17 @@
 
 .arrow-icon {
   font-size: 1.2rem !important;
-  color: #d80c24;
+  color: #E50112;
   transition: transform 0.3s ease;
 }
 
 .news-link:hover .arrow-icon {
   transform: translateX(4px);
+}
+
+/* 1つ目のお知らせ（FES 2026）の矢印を非表示 */
+.news-item:nth-child(1) .news-arrow {
+  display: none;
 }
 
 /* ===========================
@@ -312,10 +317,10 @@
     min-width: auto;
   }
 
-  /* モバイル版日付 - 1.5倍サイズ */
+  /* モバイル版日付 - 1.5倍サイズ - SHIONOGI Red */
   .whats-new-section .badge-date {
     font-size: 0.75rem !important;
-    color: #d80c24 !important;
+    color: #E50112 !important;
     font-weight: 700 !important;
   }
 
@@ -344,7 +349,7 @@
     padding: 0.53rem 0.6rem !important;
   }
 
-  /* 480px以下日付 - 1.5倍サイズ */
+  /* 480px以下日付 - 1.5倍サイズ - SHIONOGI Red */
   .whats-new-section .badge-date {
     font-size: 0.68rem !important;
   }

@@ -17,55 +17,6 @@ title: SHIONOGI DATA SCIENCE FES 2023
 本記事では、前半3つのトピック（**データサイエンス×人工知能 / デバイス / 教育**）の講演内容をご紹介します。  
 後半3つのトピック（**解析環境・DB活用 / スポーツ / 感染症**）についても、別記事にてぜひご覧ください。
 
-## 目次
-
-
-<ul class="toc-list">
-  <li>
-    <a href="#topic1"><strong>Topic 1: データサイエンス×人工知能</strong></a>
-    <ul>
-      <li><span>【基調講演1】清峰 正志氏 / Kicker Ventures Founder & Managing Partner</span></li>
-      <li><span>木口 亮 / 塩野義製薬株式会社 データサイエンス部</span></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#topic2"><strong>Topic 2: データサイエンス×デバイス</strong></a>
-    <ul>
-      <li><span>千川原 智康氏 / Google合同会社 Head of Fitbit Japan</span></li>
-      <li><span>秦 彩乃 / 塩野義製薬株式会社 データサイエンス部</span></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#topic3"><strong>Topic 3: データサイエンス×教育</strong></a>
-    <ul>
-      <li><span>【基調講演2】松井 秀俊氏 / 滋賀大学 データサイエンス学部 准教授</span></li>
-      <li><span>松野 匡志 / 塩野義製薬株式会社 データサイエンス部</span></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#topic4"><strong>Topic 4: データサイエンス×解析環境 / DB活用</strong></a>
-    <ul>
-      <li><span>石尾 千晶氏 / AWS ソリューションアーキテクト</span></li>
-      <li><span>S.E. / 塩野義製薬株式会社 データサイエンス部</span></li>
-      <li><span>福永 真一 / 塩野義製薬株式会社 データサイエンス部</span></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#topic5"><strong>Topic 5: データサイエンス×スポーツ</strong></a>
-    <ul>
-      <li><span>那須 大毅氏 / NTT コミュニケーション科学基礎研究所</span></li>
-      <li><span>馬場 崇充 / 塩野義製薬株式会社 / 解析センター</span></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#topic6"><strong>Topic 6: データサイエンス×感染症</strong></a>
-    <ul>
-      <li><span>【基調講演3】西浦 博氏 / 京都大学 医学研究科 教授</span></li>
-      <li><span>藤田 智紀 / 塩野義製薬株式会社 データサイエンス部</span></li>
-    </ul>
-  </li>
-</ul>
-
 
 <section id="topic1" class="ds-topic-section">
   <h2>Topic 1: データサイエンス×人工知能</h2>

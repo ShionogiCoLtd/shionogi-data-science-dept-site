@@ -38,6 +38,30 @@ show_banner: true
   }
 </script>
 
+<!-- モバイル用の最下部ボタン修正 -->
+<style>
+  @media (max-width: 768px) {
+    /* 最下部の社外発表ボタンのフォントサイズ調整 */
+    .presentations-button,
+    .custom-presentations-btn,
+    a.button.custom-presentations-btn {
+      font-size: 0.8rem !important;
+      padding: 0.5rem 1rem !important;
+      border-radius: 1.5rem !important;
+      white-space: nowrap !important;
+      width: auto !important;
+      max-width: 95% !important;
+      display: inline-block !important;
+    }
+
+    /* ボタンラッパーの調整 */
+    .presentations-button-wrapper {
+      padding: 0.5rem 1rem !important;
+      margin-top: 1rem !important;
+    }
+  }
+</style>
+
 <div class="content">
   {{ content }}
 </div>

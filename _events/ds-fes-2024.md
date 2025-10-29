@@ -12,39 +12,6 @@ title: SHIONOGI DATA SCIENCE FES 2024
 当日は約1,130名の方にご参加いただき、多くの方にご興味を持っていただけたことを嬉しく思うとともに、本イベントが協創の場となれば幸いです。
 
 
-## 目次
-
-<ul class="toc-list">
-  <li>
-    <a href="#session1"><strong>Session 1: データサイエンスの最先端</strong></a>
-    <ul>
-      <li>【基調講演1】清峰 正志氏 / Kicker Ventures Founder & Managing Partner</li>
-      <li>【基調講演2】西上 慎司氏 / ヘルスケアデジタルの最前線</li>
-      <li>岩本 洋紀 / 塩野義製薬株式会社 データサイエンス部</li>
-      <li>副島 涼 / 塩野義製薬株式会社 データサイエンス部</li>
-      <li>宮澤 昇吾 / 塩野義製薬株式会社 データサイエンス部</li>
-    </ul>
-  </li>
-  <li>
-    <a href="#session2"><strong>Session 2: 組織・人材論</strong></a>
-    <ul>
-      <li>【特別講演】手代木 功 / 塩野義製薬株式会社</li>
-      <li>北西 由武 / 塩野義製薬株式会社 データサイエンス部</li>
-      <li>【基調講演3】水上 千佳氏 / 日本マイクロソフト株式会社</li>
-    </ul>
-  </li>
-  <li>
-    <a href="#session3"><strong>Session 3: データエンジニアリングの躍進</strong></a>
-    <ul>
-      <li>【基調講演4】東條 英俊氏 / Snowflake合同会社</li>
-      <li>【基調講演5】手島 主税氏 / SAS Institute Japan</li>
-      <li>渡邉 慶 / 塩野義製薬株式会社 データサイエンス部</li>
-      <li>山下 彩花 / 塩野義製薬株式会社 データサイエンス部</li>
-      <li>髙市 伸宏 / 塩野義製薬株式会社 データサイエンス部</li>
-      <li>S.E. / 塩野義製薬株式会社 データサイエンス部</li>
-    </ul>
-  </li>
-</ul>
 
 <section id="session1" class="ds-topic-section">
   <h2>Session 1: データサイエンスの最先端</h2>

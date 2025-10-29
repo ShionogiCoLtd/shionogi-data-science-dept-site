@@ -4,7 +4,8 @@
   padding: 0.2rem 3.5rem;
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 0.5rem 1rem 0.25rem 1rem; // 上0.5rem、下0.25remに削減
+    margin-bottom: 0 !important; // 下マージンを削除
   }
 }
 
@@ -35,8 +36,8 @@
   }
 
   @media (max-width: 768px) {
-    font-size: 1rem;
-    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem; // 1rem → 0.9remに縮小
+    padding: 0.45rem 1.2rem; // パディング削減
     width: 100%;
     justify-content: center;
     text-align: center;
@@ -81,19 +82,19 @@
   }
 
   @media (max-width: 768px) {
-    padding: 1rem 1.25rem;
-    margin: 1.5rem 0.5rem;
+    padding: 0.75rem 1rem; // 1rem 1.25rem → 0.75rem 1rem
+    margin: 0.25rem 0.5rem 0.5rem 0.5rem; // 上マージンを削減（1.5rem → 0.25rem）
     border-radius: 0.75rem;
 
     p {
-      font-size: 1rem;
-      line-height: 1.7;
-      padding: 4px 0;
+      font-size: 0.75rem !important; // 1rem → 0.75remに縮小
+      line-height: 1.6 !important; // 1.7 → 1.6
+      padding: 3px 0 !important; // 4px → 3px
     }
 
     .lead {
-      font-size: 1.05rem;
-      margin-bottom: 0.75rem;
+      font-size: 0.85rem; // 1.05rem → 0.85rem
+      margin-bottom: 0.5rem; // 0.75rem → 0.5rem
     }
   }
 }
