@@ -261,10 +261,7 @@
   transform: translateX(4px);
 }
 
-/* 1つ目のお知らせ（FES 2026）の矢印を非表示 */
-.news-item:nth-child(1) .news-arrow {
-  display: none;
-}
+
 
 /* ===========================
    レスポンシブ対応（モバイル：超コンパクト）

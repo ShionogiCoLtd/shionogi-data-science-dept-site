@@ -1,9 +1,3 @@
-// ===================================
-// About Us Banner - Modern Data Science Design
-// PC: Full design with grid animation
-// Mobile: Simple elegant design with diagonal accent
-// Text Position: Lower adjustment
-// ===================================
 
 .aboutus-banner {
     position: fixed;
@@ -193,10 +187,7 @@
     }
 }
 
-// ===================================
-// Main Content Area
-// デフォルト: バナーなし（記事ページなど）
-// ===================================
+
 .main-content {
     position: relative;
     z-index: 10;
