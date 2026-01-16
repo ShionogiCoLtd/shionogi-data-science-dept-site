@@ -4,7 +4,8 @@
       <h1 class="hero-badge-title skew-text">塩野義製薬 データサイエンス部</h1>
     </a>
 
-    <div class="hero-badge-links">
+    <!-- デスクトップ用ナビゲーション（768px超で表示） -->
+    <div class="hero-badge-links desktop-nav">
 
       <!-- 外部リンク：SHIONOGI Group -->
       <a href="{{ site.corporate_site }}" target="_blank" class="external-link" data-label="SHIONOGI Group">
@@ -20,6 +21,9 @@
           </a>
           <a class="navbar-item" href="{{ site.baseurl }}/events/ds-fes-2024">
             SHIONOGI DATA SCIENCE FES 2024
+          </a>
+          <a class="navbar-item" href="{{ site.baseurl }}/events/ds-fes-2025">
+            SHIONOGI DATA SCIENCE FES 2025
           </a>
         </div>
       </div>
@@ -39,5 +43,76 @@
       </a>
 
     </div>
+
+    <!-- モバイル用ハンバーガーボタン（768px以下で表示） -->
+    <button class="hamburger-menu" id="hamburger-btn" aria-label="メニューを開く">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
   </div>
 </section>
+
+<!-- モバイル用ドロワーメニュー（sectionの外側に配置） -->
+<nav class="mobile-drawer" id="mobile-drawer">
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="drawer-content">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Menu</h2>
+      <button class="drawer-close" id="drawer-close-btn" aria-label="メニューを閉じる">
+        <span class="close-icon">×</span>
+      </button>
+    </div>
+
+    <ul class="drawer-links">
+      <li>
+        <a href="{{ site.corporate_site }}" target="_blank" class="drawer-link">
+          <span class="link-icon">🏢</span>
+          <span class="link-text">SHIONOGI Group</span>
+        </a>
+      </li>
+      <li class="drawer-dropdown">
+        <button class="drawer-link dropdown-toggle" id="events-toggle">
+          <span class="link-icon">📅</span>
+          <span class="link-text">Events</span>
+          <span class="dropdown-arrow">▾</span>
+        </button>
+        <ul class="drawer-submenu" id="events-submenu">
+          <li>
+            <a href="{{ site.baseurl }}/events/ds-fes-2023" class="drawer-sublink">
+              DATA SCIENCE FES 2023
+            </a>
+          </li>
+          <li>
+            <a href="{{ site.baseurl }}/events/ds-fes-2024" class="drawer-sublink">
+              DATA SCIENCE FES 2024
+            </a>
+          </li>
+          <li>
+            <a href="{{ site.baseurl }}/events/ds-fes-2025" class="drawer-sublink">
+              DATA SCIENCE FES 2025
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" class="drawer-link">
+          <span class="link-icon">💻</span>
+          <span class="link-text">GitHub</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/{{ site.github_repo }}" target="_blank" class="drawer-link">
+          <span class="link-icon">📦</span>
+          <span class="link-text">Source</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ site.recruiting_site }}" target="_blank" class="drawer-link">
+          <span class="link-icon">💼</span>
+          <span class="link-text">Careers</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
