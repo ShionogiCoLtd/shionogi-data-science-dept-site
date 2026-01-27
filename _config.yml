@@ -26,7 +26,6 @@ baseurl: "/shionogi-data-science-dept-site" # the subpath of your site, e.g. /bl
 url: https://ShionogiCoLtd.github.io
 github_username:  ShionogiCoLtd
 github_repo: ShionogiCoLtd/shionogi-data-science-dept-site
-aboutus: aboutus
 corporate_site: https://www.shionogi.com/
 recruiting_site: https://www.shionogi.com/jp/ja/recruit
 
