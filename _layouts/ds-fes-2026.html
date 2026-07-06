@@ -1,0 +1,227 @@
+---
+layout: default
+---
+<article class="fes2026">
+  <header class="fes2026-hero">
+    <div class="fes2026-hero__bg" aria-hidden="true"></div>
+
+
+<div class="fes2026-hero__inner">
+  <p class="fes2026-hero__kicker">Event Report</p>
+
+  <h1 class="fes2026-hero__title">
+    {{ page.title }}
+  </h1>
+
+  {% if page.subtitle %}
+    <p class="fes2026-hero__subtitle">
+      {{ page.subtitle }}
+    </p>
+  {% endif %}
+
+  <div class="fes2026-hero__meta">
+    {% if page.event_date %}
+      <span>{{ page.event_date }}</span>
+    {% endif %}
+
+    {% if page.event_location %}
+      <span>{{ page.event_location }}</span>
+    {% endif %}
+
+    {% if page.category %}
+      <span>{{ page.category }}</span>
+    {% endif %}
+  </div>
+</div>
+
+
+  </header>
+
+  <section class="fes2026-contents" aria-label="目次">
+    <div class="fes2026-contents__inner">
+      <div class="fes2026-contents__head">
+        <p class="fes2026-contents__kicker">Contents</p>
+        <h2>講演一覧</h2>
+        <p>各講演の概要・登壇者情報・アーカイブ動画へ移動できます。</p>
+      </div>
+
+
+  <div id="fes2026-toc-links" class="fes2026-contents__grid"></div>
+</div>
+
+
+  </section>
+
+  <main class="fes2026-main">
+    <div class="fes2026-main__inner">
+      <div class="fes2026-article js-fes2026-article">
+        {{ content }}
+      </div>
+    </div>
+  </main>
+
+  <button class="fes2026-backtop" type="button" aria-label="ページ上部へ戻る">
+    ↑
+  </button>
+</article>
+
+<script>
+  (function () {
+    const root = document.querySelector('.fes2026');
+    const article = document.querySelector('.js-fes2026-article');
+    const toc = document.getElementById('fes2026-toc-links');
+    const backTop = document.querySelector('.fes2026-backtop');
+
+    if (!root || !article) return;
+
+    // 画像の表示最適化
+    const images = article.querySelectorAll('img');
+
+    images.forEach(function (img) {
+      img.setAttribute('loading', 'lazy');
+      img.setAttribute('decoding', 'async');
+
+      const parent = img.parentElement;
+
+      if (
+        parent &&
+        parent.tagName === 'P' &&
+        parent.children.length === 1 &&
+        parent.textContent.trim() === ''
+      ) {
+        parent.classList.add('fes2026-image-block');
+      }
+
+      const classifyImage = function () {
+        if (!img.naturalWidth || !img.naturalHeight) return;
+
+        const ratio = img.naturalWidth / img.naturalHeight;
+
+        if (ratio < 0.85) {
+          img.classList.add('fes2026-img--portrait');
+        } else if (ratio > 1.35) {
+          img.classList.add('fes2026-img--wide');
+        } else {
+          img.classList.add('fes2026-img--standard');
+        }
+      };
+
+      if (img.complete) {
+        classifyImage();
+      } else {
+        img.addEventListener('load', classifyImage, { once: true });
+      }
+    });
+
+    // h1 / h2 からカード型目次を自動生成
+    if (toc) {
+      const headings = Array.from(article.querySelectorAll('h1, h2'));
+
+      headings.forEach(function (heading, index) {
+        if (!heading.id) {
+          heading.id = 'fes2026-section-' + (index + 1);
+        }
+
+        const headingTag = heading.tagName.toLowerCase();
+        const rawText = heading.textContent.trim();
+
+        let badge = '';
+        let title = rawText;
+
+        if (headingTag === 'h1') {
+          const sessionMatch = rawText.match(/Session\s*([0-9]+)/i);
+          badge = sessionMatch ? 'Session ' + sessionMatch[1] : 'Session';
+
+          if (rawText.indexOf('｜') !== -1) {
+            title = rawText.split('｜').pop().trim();
+          }
+
+          title = title.replace(/^Session\s*[0-9]+\s*[：:]\s*/i, '').trim();
+        } else {
+          const lectureMatch = rawText.match(/^【(.+?)】(.+)$/);
+
+          if (lectureMatch) {
+            badge = lectureMatch[1].trim();
+            title = lectureMatch[2].trim();
+          } else {
+            badge = 'Lecture';
+            title = rawText;
+          }
+        }
+
+        const link = document.createElement('a');
+        link.href = '#' + heading.id;
+        link.className = 'fes2026-contents-card fes2026-contents-card--' + headingTag;
+
+        const badgeElement = document.createElement('span');
+        badgeElement.className = 'fes2026-contents-card__badge';
+        badgeElement.textContent = badge;
+
+        const titleElement = document.createElement('span');
+        titleElement.className = 'fes2026-contents-card__title';
+        titleElement.textContent = title;
+
+        link.appendChild(badgeElement);
+        link.appendChild(titleElement);
+
+        toc.appendChild(link);
+      });
+
+      if (headings.length === 0) {
+        const contentsSection = toc.closest('.fes2026-contents');
+        if (contentsSection) {
+          contentsSection.style.display = 'none';
+        }
+      }
+
+      const tocLinks = Array.from(toc.querySelectorAll('a'));
+
+      if ('IntersectionObserver' in window && tocLinks.length > 0) {
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                tocLinks.forEach(function (link) {
+                  link.classList.toggle(
+                    'is-active',
+                    link.getAttribute('href') === '#' + entry.target.id
+                  );
+                });
+              }
+            });
+          },
+          {
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+          }
+        );
+
+        headings.forEach(function (heading) {
+          observer.observe(heading);
+        });
+      }
+    }
+
+    // ページ上部へ戻るボタン
+    if (backTop) {
+      const toggleBackTop = function () {
+        if (window.scrollY > 700) {
+          backTop.classList.add('is-visible');
+        } else {
+          backTop.classList.remove('is-visible');
+        }
+      };
+
+      window.addEventListener('scroll', toggleBackTop, { passive: true });
+
+      backTop.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      toggleBackTop();
+    }
+  })();
+</script>

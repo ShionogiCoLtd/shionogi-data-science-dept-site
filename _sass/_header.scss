@@ -1,14 +1,24 @@
-/* ===========================
-   デスクトップスタイル（変更なし）
-   =========================== */
+$header-red: #d80c24;
+$header-red-deep: #a2091c;
+$header-red-soft: #fff3f5;
+$header-text: #333333;
+$header-muted: #666666;
+$header-border: rgba(0, 0, 0, 0.08);
+$header-shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
+
+// ======================================
+// Desktop header
+// ======================================
+
 .hero-badge {
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
   z-index: 999;
-  background-color: #fff;
+  width: 100%;
+  background: #ffffff;
   transition: transform 0.3s ease;
-  overflow: visible; /* 重要：ドロワーが切り取られないように */
+  overflow: visible;
 }
 
 .fixed-header-show {
@@ -22,109 +32,217 @@
 }
 
 .hero-badge-inner {
-  width: 100%;
-  padding: 0.15rem 1.2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: white;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 58px;
+  padding: 0.15rem 1.2rem;
+  background: #ffffff;
   border-radius: 0;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .hero-badge-title-link {
   display: inline-block;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  flex: 0 0 auto;
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
 
-  &:hover {
-    transform: translateY(2px);
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-  }
+.hero-badge-title-link:hover {
+  text-decoration: none;
+  transform: translateY(2px);
 }
 
 .hero-badge-title {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.02rem;
+  background-color: $header-red;
+  color: #ffffff;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
-  background-color: #d80c24;
-  padding: 0.5rem 1rem;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-  border-radius: 0.02rem;
-  transition: box-shadow 0.15s ease;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .hero-badge-links {
   display: flex;
-  gap: 1rem;
   align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .hero-badge-links > a {
-  color: #333;
+  position: relative;
+  color: $header-text;
   font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
-  position: relative;
-
-  &:hover::after {
-    content: "";
-    display: block;
-    height: 2px;
-    background: #d80c24;
-    width: 100%;
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-  }
 }
 
-.navbar-item.is-hoverable {
-  position: relative;
+.hero-badge-links > a:hover,
+.hero-badge-links > a:focus {
+  color: $header-red;
+  text-decoration: none;
 }
 
-.navbar-link {
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #333;
+.hero-badge-links > a:hover::after,
+.hero-badge-links > a:focus::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: $header-red;
+}
+
+// ======================================
+// Desktop Events dropdown
+// ======================================
+
+.navbar-item.is-hoverable.is-event-dropdown {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.5rem 0; 
-  line-height: 1.2;
-} 
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+}
 
-.navbar-dropdown {
-  display: none;
+.navbar-item.is-hoverable.is-event-dropdown::after {
+  content: "";
   position: absolute;
   top: 100%;
-  left: 0;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  min-width: 1rem;
-  padding: 0.5rem 0;
-  white-space: nowrap;
+  left: -1rem;
+  right: -1rem;
+  height: 1rem;
+  background: transparent;
 }
 
-.navbar-item.is-hoverable:hover .navbar-dropdown {
-  display: block;
-}
-
-.navbar-dropdown .navbar-item {
-  display: block;
-  padding: 0.6rem 1rem;
-  color: #333;
+.is-event-dropdown > .navbar-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 40px;
+  padding: 0.55rem 0.8rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: $header-text;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1;
   text-decoration: none;
-
-  &:hover {
-    background-color: #f9d6d6; 
-    color: #d80c24;
-  }
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
-/* ハンバーガーメニューはデフォルトで非表示 */
+.is-event-dropdown > .navbar-link::after {
+  content: "" !important;
+  position: static !important;
+  display: inline-block !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 0 0 0.15rem !important;
+  border-top: 5px solid $header-red !important;
+  border-right: 4px solid transparent !important;
+  border-bottom: 0 !important;
+  border-left: 4px solid transparent !important;
+  transform: none !important;
+}
+
+.is-event-dropdown:hover > .navbar-link,
+.is-event-dropdown:focus-within > .navbar-link,
+.is-event-dropdown.is-open > .navbar-link {
+  background: $header-red-soft;
+  color: $header-red;
+  text-decoration: none;
+}
+
+.is-event-dropdown .navbar-dropdown {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  right: -0.35rem;
+  left: auto;
+  z-index: 1000;
+  display: block !important;
+  min-width: 330px;
+  max-width: calc(100vw - 2rem);
+  padding: 0.55rem;
+  border: 1px solid rgba($header-red, 0.14);
+  border-radius: 0.8rem;
+  background: #ffffff;
+  box-shadow: $header-shadow;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition:
+    opacity 0.16s ease,
+    visibility 0.16s ease,
+    transform 0.16s ease;
+}
+
+.is-event-dropdown .navbar-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -0.75rem;
+  left: 0;
+  right: 0;
+  height: 0.75rem;
+  background: transparent;
+}
+
+.is-event-dropdown:hover .navbar-dropdown,
+.is-event-dropdown:focus-within .navbar-dropdown,
+.is-event-dropdown.is-open .navbar-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.is-event-dropdown .navbar-dropdown .navbar-item,
+.event-dropdown-item {
+  display: block;
+  padding: 0.82rem 0.95rem;
+  border-radius: 0.6rem;
+  color: $header-text;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.is-event-dropdown .navbar-dropdown .navbar-item:hover,
+.is-event-dropdown .navbar-dropdown .navbar-item:focus,
+.event-dropdown-item:hover,
+.event-dropdown-item:focus {
+  background: $header-red-soft;
+  color: $header-red;
+  text-decoration: none;
+}
+
+.event-dropdown-item--featured {
+  background: $header-red-soft;
+  color: $header-red !important;
+}
+
+// ======================================
+// Mobile initial state
+// ======================================
+
 .hamburger-menu {
   display: none;
 }
@@ -133,67 +251,85 @@
   display: none;
 }
 
+html.is-menu-open,
+body.is-menu-open,
+html.is-site-menu-open,
+body.is-site-menu-open {
+  overflow: hidden !important;
+}
 
-/* ===========================
-   モバイル専用スタイル（768px以下）
-   =========================== */
+// ======================================
+// Mobile
+// ======================================
+
 @media (max-width: 768px) {
-  /* ヘッダーを常に表示 */
+  .hero-badge,
+  .hero-badge.fixed-header-show,
+  .hero-badge.fixed-header-hide,
+  .fixed-header-show,
+  .fixed-header-hide {
+    transform: none !important;
+  }
+
   .hero-badge {
-    transform: translateY(0%) !important;
+    z-index: 10000;
   }
 
   .hero-badge-inner {
+    min-height: 56px;
     padding: 0.5rem 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
-  /* タイトルをコンパクトに */
   .hero-badge-title {
-    font-size: 0.75rem;
+    max-width: calc(100vw - 76px);
     padding: 0.4rem 0.6rem;
+    overflow: hidden;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 0.75rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  /* デスクトップナビゲーションを非表示 */
   .desktop-nav {
     display: none !important;
   }
 
-  /* ===========================
-     ハンバーガーボタン
-     =========================== */
   .hamburger-menu {
-    display: flex;
+    position: relative;
+    z-index: 10002;
+    display: flex !important;
+    flex: 0 0 auto;
     flex-direction: column;
     justify-content: space-around;
     width: 32px;
     height: 32px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
     padding: 6px;
-    z-index: 10001; /* ドロワーより上に配置 */
-    position: relative;
-    transition: transform 0.3s ease;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
 
-    &:active {
-      transform: scale(0.9);
-    }
+  .hamburger-menu:active {
+    transform: scale(0.94);
   }
 
   .hamburger-line {
+    display: block;
     width: 100%;
     height: 3px;
-    background-color: #d80c24;
     border-radius: 2px;
-    transition: all 0.3s ease;
+    background-color: $header-red;
     transform-origin: center;
+    transition:
+      opacity 0.22s ease,
+      transform 0.22s ease;
   }
 
-  /* ハンバーガーメニューが開いた時のアニメーション */
   .hamburger-menu.is-active .hamburger-line:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
   }
 
   .hamburger-menu.is-active .hamburger-line:nth-child(2) {
@@ -202,59 +338,57 @@
   }
 
   .hamburger-menu.is-active .hamburger-line:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
   }
 
-  /* ===========================
-     モバイルドロワー
-     =========================== */
   .mobile-drawer {
-    display: block;
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
+    z-index: 10001;
+    display: block !important;
     width: 100vw;
     height: 100vh;
-    z-index: 9999; /* ヘッダー（999）より圧倒的に高く */
-    pointer-events: none;
-    transition: opacity 0.3s ease;
     opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transform: none !important;
+    transition:
+      opacity 0.22s ease,
+      visibility 0.22s ease;
   }
 
   .mobile-drawer.is-open {
-    pointer-events: auto;
     opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
   }
 
-  /* オーバーレイ（背景の暗い部分） */
   .drawer-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: opacity 0.3s ease;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.56);
     opacity: 0;
+    transition: opacity 0.22s ease;
   }
 
   .mobile-drawer.is-open .drawer-overlay {
     opacity: 1;
   }
 
-  /* ドロワーコンテンツ（右からスライドイン） */
   .drawer-content {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
-    width: 80%;
+    z-index: 2;
+    width: 82vw;
     max-width: 360px;
     height: 100vh;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.24);
+    transform: translateX(100%);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     -webkit-overflow-scrolling: touch;
   }
 
@@ -262,56 +396,55 @@
     transform: translateX(0);
   }
 
-  /* ドロワーヘッダー */
   .drawer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 1.5rem;
-    background: linear-gradient(90deg, #d80c24 0%, #b00a1d 100%);
-    box-shadow: 0 2px 8px rgba(216, 12, 36, 0.2);
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.35rem 1.5rem;
+    background: linear-gradient(90deg, $header-red 0%, $header-red-deep 100%);
+    box-shadow: 0 2px 8px rgba(216, 12, 36, 0.2);
   }
 
   .drawer-title {
+    margin: 0;
+    color: #ffffff;
     font-size: 1.2rem;
     font-weight: 700;
-    color: #fff;
-    margin: 0;
     letter-spacing: 0.05em;
   }
 
   .drawer-close {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    width: 36px;
-    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
 
-    &:active {
-      transform: scale(0.9);
-    }
+  .drawer-close:active {
+    transform: scale(0.92);
   }
 
   .close-icon {
+    color: #ffffff;
     font-size: 2.2rem;
-    color: #fff;
-    line-height: 1;
     font-weight: 300;
+    line-height: 1;
   }
 
-  /* ドロワーリンク */
   .drawer-links {
-    list-style: none;
     margin: 0;
     padding: 1rem 0;
+    list-style: none;
   }
 
   .drawer-links > li {
@@ -322,46 +455,53 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1.2rem 1.5rem;
-    color: #333;
-    text-decoration: none;
+    width: 100%;
+    padding: 1.15rem 1.5rem;
+    border: none;
+    background: transparent;
+    color: $header-text;
+    font-family: inherit;
     font-size: 1rem;
     font-weight: 600;
-    transition: all 0.2s ease;
-    background: transparent;
-    border: none;
-    width: 100%;
     text-align: left;
+    text-decoration: none;
     cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
 
-    &:active {
-      background-color: rgba(216, 12, 36, 0.08);
-      transform: scale(0.98);
-    }
+  .drawer-link:hover,
+  .drawer-link:active {
+    background-color: rgba(216, 12, 36, 0.08);
+    color: $header-red;
+    text-decoration: none;
   }
 
   .link-icon {
-    font-size: 1.4rem;
-    width: 30px;
-    text-align: center;
     flex-shrink: 0;
+    width: 30px;
+    font-size: 1.25rem;
+    text-align: center;
   }
 
   .link-text {
     flex: 1;
-    color: #333;
+    color: inherit;
   }
 
   .dropdown-arrow {
-    font-size: 0.85rem;
-    color: #666;
-    transition: transform 0.3s ease;
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 0;
+    height: 0;
     margin-left: auto;
-  }
-
-  /* Eventsドロップダウン */
-  .drawer-dropdown {
-    position: relative;
+    border-top: 6px solid $header-muted;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
+    transition: transform 0.22s ease;
   }
 
   .dropdown-toggle.is-active .dropdown-arrow {
@@ -369,37 +509,49 @@
   }
 
   .drawer-submenu {
-    list-style: none;
+    max-height: 0;
     margin: 0;
     padding: 0;
-    max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
     background-color: rgba(216, 12, 36, 0.04);
+    list-style: none;
+    transition:
+      max-height 0.24s ease,
+      padding 0.24s ease;
   }
 
   .drawer-submenu.is-open {
-    max-height: 500px;
-    padding: 0.5rem 0;
+    max-height: 520px;
+    padding: 0.45rem 0;
   }
 
   .drawer-sublink {
     display: block;
-    padding: 1rem 1.5rem 1rem 4.5rem;
-    color: #555;
-    text-decoration: none;
+    padding: 0.95rem 1.5rem 0.95rem 4.5rem;
+    color: #555555;
     font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-
-    &:active {
-      background-color: rgba(216, 12, 36, 0.1);
-      color: #d80c24;
-      padding-left: 4.7rem;
-    }
+    font-weight: 600;
+    line-height: 1.35;
+    text-decoration: none;
+    transition:
+      background-color 0.18s ease,
+      color 0.18s ease,
+      padding-left 0.18s ease;
   }
 
-  /* スクロールバーのスタイリング */
+  .drawer-sublink:hover,
+  .drawer-sublink:active,
+  .drawer-sublink--featured {
+    background-color: rgba(216, 12, 36, 0.1);
+    color: $header-red;
+    text-decoration: none;
+  }
+
+  .drawer-sublink:hover,
+  .drawer-sublink:active {
+    padding-left: 4.7rem;
+  }
+
   .drawer-content::-webkit-scrollbar {
     width: 5px;
   }
@@ -409,7 +561,17 @@
   }
 
   .drawer-content::-webkit-scrollbar-thumb {
-    background-color: rgba(216, 12, 36, 0.3);
     border-radius: 3px;
+    background-color: rgba(216, 12, 36, 0.3);
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-badge-title {
+    font-size: 0.68rem;
+  }
+
+  .drawer-content {
+    width: 88vw;
   }
 }

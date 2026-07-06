@@ -1,118 +1,186 @@
-<section id="hero-header" class="hero-badge fixed-header-show">
+<header class="hero-badge fixed-header-show">
   <div class="hero-badge-inner">
-    <a href="{{ site.baseurl }}/" class="hero-badge-title-link skew-link">
-      <h1 class="hero-badge-title skew-text">塩野義製薬 データサイエンス部</h1>
+    <a class="hero-badge-title-link" href="{{ site.baseurl }}/" data-ga-label="Header Site Top" data-ga-location="header">
+      <span class="hero-badge-title">塩野義製薬 データサイエンス部</span>
     </a>
 
-    <!-- デスクトップ用ナビゲーション（768px超で表示） -->
-    <div class="hero-badge-links desktop-nav">
-
-      <!-- 外部リンク：SHIONOGI Group -->
-      <a href="{{ site.corporate_site }}" target="_blank" class="external-link" data-label="SHIONOGI Group">
+    <nav class="hero-badge-links desktop-nav" aria-label="Global navigation">
+      <a
+        href="https://www.shionogi.com/jp/ja/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="external-link"
+        data-ga-label="SHIONOGI Group"
+        data-ga-location="header"
+      >
         SHIONOGI Group
       </a>
 
-      <!-- イベントドロップダウン -->
       <div class="navbar-item is-hoverable is-event-dropdown">
-        <span class="navbar-link">Events</span>
+        <button class="navbar-link" type="button" aria-haspopup="true" aria-expanded="false">
+          Events
+        </button>
+
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="{{ site.baseurl }}/events/ds-fes-2023">
-            SHIONOGI DATA SCIENCE FES 2023
+          <a class="navbar-item event-dropdown-item event-dropdown-item--featured" href="{{ site.baseurl }}/events/ds-fes-2026/" data-ga-label="DATA SCIENCE FES 2026" data-ga-location="header_events">
+            SHIONOGI DATA SCIENCE FES 2026
           </a>
-          <a class="navbar-item" href="{{ site.baseurl }}/events/ds-fes-2024">
+
+          <a class="navbar-item event-dropdown-item" href="{{ site.baseurl }}/events/ds-fes-2025/" data-ga-label="DATA SCIENCE FES 2025" data-ga-location="header_events">
+            SHIONOGI DATA SCIENCE FES 2025
+          </a>
+
+          <a class="navbar-item event-dropdown-item" href="{{ site.baseurl }}/events/ds-fes-2024/" data-ga-label="DATA SCIENCE FES 2024" data-ga-location="header_events">
             SHIONOGI DATA SCIENCE FES 2024
           </a>
-          <a class="navbar-item" href="{{ site.baseurl }}/events/ds-fes-2025">
-            SHIONOGI DATA SCIENCE FES 2025
+
+          <a class="navbar-item event-dropdown-item" href="{{ site.baseurl }}/events/ds-fes-2023/" data-ga-label="DATA SCIENCE FES 2023" data-ga-location="header_events">
+            SHIONOGI DATA SCIENCE FES 2023
           </a>
         </div>
       </div>
 
-      <!-- 外部リンク：GitHub -->
-      <a href="https://github.com/{{ site.github_username }}" target="_blank" class="external-link" data-label="GitHub Top">
+      <a href="{{ site.baseurl }}/materials/" data-ga-label="Materials" data-ga-location="header">
+        公開資料
+      </a>
+
+      <a
+        href="https://github.com/ShionogiCoLtd"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="external-link"
+        data-ga-label="GitHub Top"
+        data-ga-location="header"
+      >
         GitHub
       </a>
 
-      <a href="https://github.com/{{ site.github_repo }}" target="_blank" class="external-link" data-label="GitHub Source">
+      <a
+        href="https://github.com/ShionogiCoLtd/shionogi-data-science-dept-site"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="external-link"
+        data-ga-label="GitHub Source"
+        data-ga-location="header"
+      >
         Source
       </a>
 
-      <!-- 外部リンク：Careers -->
-      <a href="{{ site.recruiting_site }}" target="_blank" class="external-link" data-label="Careers">
+      <a href="{{ site.baseurl }}/careers/" data-ga-label="Careers" data-ga-location="header">
         Careers
       </a>
+    </nav>
 
-    </div>
-
-    <!-- モバイル用ハンバーガーボタン（768px以下で表示） -->
-    <button class="hamburger-menu" id="hamburger-btn" aria-label="メニューを開く">
+    <button class="hamburger-menu" id="hamburger-btn" type="button" aria-label="メニューを開く" aria-expanded="false">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
     </button>
   </div>
-</section>
 
-<!-- モバイル用ドロワーメニュー（sectionの外側に配置） -->
-<nav class="mobile-drawer" id="mobile-drawer">
-  <div class="drawer-overlay" id="drawer-overlay"></div>
-  <div class="drawer-content">
-    <div class="drawer-header">
-      <h2 class="drawer-title">Menu</h2>
-      <button class="drawer-close" id="drawer-close-btn" aria-label="メニューを閉じる">
-        <span class="close-icon">×</span>
-      </button>
-    </div>
+  <nav class="mobile-drawer" id="mobile-drawer" aria-hidden="true" aria-label="Mobile navigation">
+    <div class="drawer-overlay" id="drawer-overlay"></div>
 
-    <ul class="drawer-links">
-      <li>
-        <a href="{{ site.corporate_site }}" target="_blank" class="drawer-link">
-          <span class="link-icon">🏢</span>
-          <span class="link-text">SHIONOGI Group</span>
-        </a>
-      </li>
-      <li class="drawer-dropdown">
-        <button class="drawer-link dropdown-toggle" id="events-toggle">
-          <span class="link-icon">📅</span>
-          <span class="link-text">Events</span>
-          <span class="dropdown-arrow">▾</span>
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h2 class="drawer-title">Menu</h2>
+
+        <button class="drawer-close" id="drawer-close-btn" type="button" aria-label="メニューを閉じる">
+          <span class="close-icon">&times;</span>
         </button>
-        <ul class="drawer-submenu" id="events-submenu">
-          <li>
-            <a href="{{ site.baseurl }}/events/ds-fes-2023" class="drawer-sublink">
-              DATA SCIENCE FES 2023
-            </a>
-          </li>
-          <li>
-            <a href="{{ site.baseurl }}/events/ds-fes-2024" class="drawer-sublink">
-              DATA SCIENCE FES 2024
-            </a>
-          </li>
-          <li>
-            <a href="{{ site.baseurl }}/events/ds-fes-2025" class="drawer-sublink">
-              DATA SCIENCE FES 2025
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://github.com/{{ site.github_username }}" target="_blank" class="drawer-link">
-          <span class="link-icon">💻</span>
-          <span class="link-text">GitHub</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/{{ site.github_repo }}" target="_blank" class="drawer-link">
-          <span class="link-icon">📦</span>
-          <span class="link-text">Source</span>
-        </a>
-      </li>
-      <li>
-        <a href="{{ site.recruiting_site }}" target="_blank" class="drawer-link">
-          <span class="link-icon">💼</span>
-          <span class="link-text">Careers</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
+      </div>
+
+      <ul class="drawer-links">
+        <li>
+          <a
+            class="drawer-link external-link"
+            href="https://www.shionogi.com/jp/ja/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-ga-label="SHIONOGI Group"
+            data-ga-location="mobile_drawer"
+          >
+            <span class="link-icon">↗</span>
+            <span class="link-text">SHIONOGI Group</span>
+          </a>
+        </li>
+
+        <li class="drawer-dropdown">
+          <button class="drawer-link dropdown-toggle" id="events-toggle" type="button" aria-expanded="false">
+            <span class="link-icon">📅</span>
+            <span class="link-text">Events</span>
+            <span class="dropdown-arrow">▾</span>
+          </button>
+
+          <ul class="drawer-submenu" id="events-submenu">
+            <li>
+              <a class="drawer-sublink drawer-sublink--featured" href="{{ site.baseurl }}/events/ds-fes-2026/" data-ga-label="DATA SCIENCE FES 2026" data-ga-location="mobile_events">
+                DATA SCIENCE FES 2026
+              </a>
+            </li>
+
+            <li>
+              <a class="drawer-sublink" href="{{ site.baseurl }}/events/ds-fes-2025/" data-ga-label="DATA SCIENCE FES 2025" data-ga-location="mobile_events">
+                DATA SCIENCE FES 2025
+              </a>
+            </li>
+
+            <li>
+              <a class="drawer-sublink" href="{{ site.baseurl }}/events/ds-fes-2024/" data-ga-label="DATA SCIENCE FES 2024" data-ga-location="mobile_events">
+                DATA SCIENCE FES 2024
+              </a>
+            </li>
+
+            <li>
+              <a class="drawer-sublink" href="{{ site.baseurl }}/events/ds-fes-2023/" data-ga-label="DATA SCIENCE FES 2023" data-ga-location="mobile_events">
+                DATA SCIENCE FES 2023
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="drawer-link" href="{{ site.baseurl }}/materials/" data-ga-label="Materials" data-ga-location="mobile_drawer">
+            <span class="link-icon">▣</span>
+            <span class="link-text">公開資料</span>
+          </a>
+        </li>
+
+        <li>
+          <a
+            class="drawer-link external-link"
+            href="https://github.com/ShionogiCoLtd"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-ga-label="GitHub Top"
+            data-ga-location="mobile_drawer"
+          >
+            <span class="link-icon">⚙</span>
+            <span class="link-text">GitHub</span>
+          </a>
+        </li>
+
+        <li>
+          <a
+            class="drawer-link external-link"
+            href="https://github.com/ShionogiCoLtd/shionogi-data-science-dept-site"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-ga-label="GitHub Source"
+            data-ga-location="mobile_drawer"
+          >
+            <span class="link-icon">⌘</span>
+            <span class="link-text">Source</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="drawer-link" href="{{ site.baseurl }}/careers/" data-ga-label="Careers" data-ga-location="mobile_drawer">
+            <span class="link-icon">👥</span>
+            <span class="link-text">Careers</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

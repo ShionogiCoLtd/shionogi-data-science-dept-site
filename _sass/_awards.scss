@@ -1,0 +1,276 @@
+.awards-section {
+padding: 4.5rem 0 4rem;
+background: #ffffff;
+}
+
+.awards-section__inner {
+max-width: 1040px;
+margin: 0 auto;
+padding: 0 2rem;
+}
+
+.awards-section__heading {
+margin-bottom: 2.6rem;
+text-align: center;
+}
+
+.awards-section__eyebrow {
+margin: 0 0 0.7rem;
+color: #d80c24;
+font-size: 0.9rem;
+font-weight: 800;
+letter-spacing: 0.18em;
+}
+
+.awards-section__main-title {
+margin: 0 0 0.8rem;
+color: #222222;
+font-size: 2rem;
+font-weight: 800;
+line-height: 1.4;
+}
+
+.awards-section__lead {
+max-width: 720px;
+margin: 0 auto;
+color: #5f6872;
+font-size: 0.98rem;
+line-height: 1.9;
+}
+
+.awards-editorial {
+position: relative;
+max-width: 920px;
+margin: 0 auto;
+padding-left: 2rem;
+}
+
+.awards-editorial::before {
+content: "";
+position: absolute;
+top: 0.2rem;
+left: 0;
+width: 4px;
+height: 5.8rem;
+border-radius: 999px;
+background: #d80c24;
+}
+
+.awards-editorial__intro {
+margin-bottom: 1.5rem;
+}
+
+.awards-editorial__year {
+margin: 0 0 0.35rem;
+color: #d80c24;
+font-size: 0.84rem;
+font-weight: 800;
+letter-spacing: 0.14em;
+}
+
+.awards-editorial__title {
+margin: 0;
+color: #17304d;
+font-size: 1.55rem;
+font-weight: 800;
+line-height: 1.5;
+}
+
+.awards-editorial__main-image {
+margin: 0 0 1.8rem;
+}
+
+.awards-editorial__main-image img {
+display: block;
+width: min(100%, 760px);
+height: auto;
+}
+
+.awards-editorial__body {
+max-width: 860px;
+margin-bottom: 2.8rem;
+color: #17304d;
+font-size: 0.96rem;
+line-height: 2;
+}
+
+.awards-editorial__body p {
+margin: 0 0 0.65rem;
+}
+
+.awards-history {
+display: grid;
+grid-template-columns: minmax(220px, 0.8fr) minmax(360px, 1.4fr);
+gap: 2.4rem;
+align-items: center;
+padding-top: 2.8rem;
+border-top: 1px solid rgba(23, 48, 77, 0.12);
+}
+
+.awards-history__text {
+min-width: 0;
+}
+
+.awards-history__label {
+margin: 0 0 0.55rem;
+color: #d80c24;
+font-size: 0.78rem;
+font-weight: 800;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+}
+
+.awards-history__title {
+margin: 0 0 0.85rem;
+color: #17304d;
+font-size: 1.35rem;
+font-weight: 800;
+line-height: 1.6;
+}
+
+.awards-history__lead {
+margin: 0;
+color: #5f6872;
+font-size: 0.92rem;
+line-height: 1.9;
+}
+
+.awards-history__image {
+margin: 0;
+}
+
+.awards-history__image img {
+display: block;
+width: min(100%, 640px);
+height: auto;
+margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+.awards-history {
+grid-template-columns: 1fr;
+gap: 1.8rem;
+}
+
+.awards-history__image img {
+margin: 0;
+}
+}
+
+@media (max-width: 768px) {
+.awards-section {
+padding: 3.5rem 0 3rem;
+overflow-x: hidden;
+}
+
+.awards-section__inner {
+padding: 0 1.15rem;
+}
+
+.awards-section__heading {
+margin-bottom: 2rem;
+}
+
+.awards-section__eyebrow {
+font-size: 0.8rem;
+}
+
+.awards-section__main-title {
+font-size: 1.7rem;
+}
+
+.awards-section__lead {
+font-size: 0.92rem;
+line-height: 1.8;
+}
+
+.awards-editorial {
+max-width: none;
+padding-left: 1.15rem;
+}
+
+.awards-editorial::before {
+width: 3px;
+height: 5.2rem;
+}
+
+.awards-editorial__intro {
+margin-bottom: 1.15rem;
+}
+
+.awards-editorial__year {
+margin-bottom: 0.25rem;
+font-size: 0.78rem;
+}
+
+.awards-editorial__title {
+font-size: 1.22rem;
+line-height: 1.45;
+}
+
+.awards-editorial__main-image {
+width: 100%;
+margin: 0 0 1.7rem;
+padding: 0;
+text-align: left;
+transform: none;
+}
+
+.awards-editorial__main-image img {
+display: block;
+width: 100%;
+max-width: none;
+height: auto;
+margin: 0;
+}
+
+.awards-editorial__body {
+margin-bottom: 2.4rem;
+font-size: 0.9rem;
+line-height: 1.9;
+}
+
+.awards-history {
+display: block;
+padding-top: 2.2rem;
+}
+
+.awards-history__label {
+font-size: 0.72rem;
+}
+
+.awards-history__title {
+font-size: 1.15rem;
+}
+
+.awards-history__lead {
+font-size: 0.88rem;
+line-height: 1.8;
+}
+
+.awards-history__image {
+width: 100%;
+margin: 1.5rem 0 0;
+padding: 0;
+text-align: left;
+transform: none;
+}
+
+.awards-history__image img {
+display: block;
+width: 100%;
+max-width: none;
+height: auto;
+margin: 0;
+}
+}
+
+@media (max-width: 380px) {
+.awards-section__inner {
+padding: 0 1rem;
+}
+
+.awards-editorial {
+padding-left: 1rem;
+}
+}

@@ -10,7 +10,9 @@
 @import "recruitment";
 @import "aboutus-banner";
 @import "presentations";
+@import "awards";
 @import "ds";
+@import "ds-fes-2026";
 @import "whats-new";
 
 body {
@@ -73,3 +75,5 @@ body {
     font-size: 14px; 
   }
 }
+
+@import "materials";

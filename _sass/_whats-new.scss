@@ -1,358 +1,200 @@
-/* ===========================
-   What's New セクション（背景拡大アニメーション版）
-   文字サイズ1.5倍、下マージン追加
-   =========================== */
-
 .whats-new-section {
-  padding: 1.5rem 0 !important;
-  margin-bottom: 3rem !important;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f4ff 100%);
-  position: relative;
-  overflow: hidden;
+position: relative;
+padding: 3.8rem 0 4rem;
+background:
+linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
 }
 
-/* ===========================
-   背景装飾：スクロールで広がる円形グラデーション
-   =========================== */
-
-.bg-decoration {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
+.whats-new-section__inner {
+max-width: 1040px;
+margin: 0 auto;
+padding: 0 2rem;
 }
 
-.expanding-bg {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0;
-  transform: scale(0);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+.whats-new-section__head {
+position: relative;
+margin-bottom: 2rem;
+text-align: center;
 }
 
-/* スクロールでアクティブになったときのスタイル */
-.expanding-bg.is-visible {
-  opacity: 0.12;
-  transform: scale(1);
+.whats-new-section__eyebrow {
+margin: 0 0 0.5rem;
+color: #d80c24;
+font-size: 0.82rem;
+font-weight: 800;
+letter-spacing: 0.16em;
+text-transform: uppercase;
 }
 
-.expanding-bg-1 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle at center, #E50112, transparent 70%);
-  top: -100px;
-  right: -50px;
-  transition-delay: 0s;
+.whats-new-section__title {
+margin: 0;
+color: #222222;
+font-size: 1.9rem;
+font-weight: 800;
+line-height: 1.4;
 }
 
-.expanding-bg-2 {
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle at center, #0068B7, transparent 70%);
-  bottom: -80px;
-  left: -80px;
-  transition-delay: 0.2s;
+.whats-new-section__head::after {
+content: "";
+display: block;
+width: 46px;
+height: 3px;
+margin: 0.85rem auto 0;
+border-radius: 999px;
+background: #d80c24;
 }
 
-.expanding-bg-3 {
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle at center, #FFA500, transparent 70%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition-delay: 0.4s;
+.whats-new-list {
+display: grid;
+gap: 0;
+max-width: 920px;
+margin: 0 auto;
+border-top: 1px solid rgba(23, 48, 77, 0.12);
+border-bottom: 1px solid rgba(23, 48, 77, 0.12);
+background: #ffffff;
 }
 
-.expanding-bg-3.is-visible {
-  transform: translate(-50%, -50%) scale(1);
+.whats-new-item {
+position: relative;
+display: grid;
+grid-template-columns: 8.5rem minmax(0, 1fr) 2rem;
+gap: 1.1rem;
+align-items: center;
+min-height: 74px;
+padding: 1rem 0.25rem;
+border-bottom: 1px solid rgba(23, 48, 77, 0.09);
+color: #17304d;
+text-decoration: none;
+transition:
+background-color 0.18s ease,
+color 0.18s ease;
 }
 
-/* ===========================
-   コンテナ
-   =========================== */
-
-.whats-new-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  position: relative;
-  z-index: 1;
+.whats-new-item:last-child {
+border-bottom: 0;
 }
 
-/* ===========================
-   セクションヘッダー（文字サイズ1.5倍）
-   =========================== */
-
-.whats-new-header {
-  text-align: center;
-  margin-bottom: 1.2rem !important;
+.whats-new-item::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -1rem;
+width: 4px;
+height: 0;
+border-radius: 999px;
+background: #d80c24;
+transform: translateY(-50%);
+transition: height 0.18s ease;
 }
 
-/* What's New タイトル - 1.5倍サイズ */
-.whats-new-section .whats-new-title {
-  font-size: 1.28rem !important;
-  font-weight: 700 !important;
-  color: #333 !important;
-  margin: 0 0 0.45rem 0 !important;
-  letter-spacing: 0.05em !important;
-  line-height: 1.2 !important;
+.whats-new-item:hover,
+.whats-new-item:focus {
+color: #17304d;
+text-decoration: none;
+background: linear-gradient(90deg, rgba(216, 12, 36, 0.045) 0%, rgba(216, 12, 36, 0) 72%);
 }
 
-.title-underline {
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #E50112 0%, #ff4d5e 100%);
-  margin: 0 auto;
-  border-radius: 2px;
+.whats-new-item:hover::before,
+.whats-new-item:focus::before {
+height: 42px;
 }
 
-/* ===========================
-   お知らせリスト
-   =========================== */
-
-.news-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+.whats-new-item__date {
+color: #d80c24;
+font-size: 0.88rem;
+font-weight: 800;
+letter-spacing: 0.06em;
+white-space: nowrap;
 }
 
-.news-item {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateX(-30px);
+.whats-new-item__text {
+min-width: 0;
+color: inherit;
+font-size: 0.96rem;
+font-weight: 700;
+line-height: 1.75;
 }
 
-.news-item:hover {
-  box-shadow: 0 2px 8px rgba(229, 1, 18, 0.12);
-  transform: translateY(-1px);
+.whats-new-item__arrow {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 1.85rem;
+height: 1.85rem;
+border: 1px solid rgba(216, 12, 36, 0.18);
+border-radius: 999px;
+color: #d80c24;
+font-size: 1rem;
+font-weight: 800;
+line-height: 1;
+transition:
+background-color 0.18s ease,
+color 0.18s ease,
+transform 0.18s ease;
 }
 
-/* スライドインアニメーション（左から） */
-.news-item[data-animate="slide-left"] {
-  animation: slideInLeft 0.6s ease-out forwards;
+.whats-new-item:hover .whats-new-item__arrow,
+.whats-new-item:focus .whats-new-item__arrow {
+background: #d80c24;
+color: #ffffff;
+transform: translateX(3px);
 }
-
-/* スライドインアニメーション（右から） */
-.news-item[data-animate="slide-right"] {
-  animation: slideInRight 0.6s ease-out forwards;
-  transform: translateX(30px);
-}
-
-/* 順次表示のため遅延 */
-.news-item:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.news-item:nth-child(2) {
-  animation-delay: 0.3s;
-}
-
-.news-item:nth-child(3) {
-  animation-delay: 0.5s;
-}
-
-@keyframes slideInLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.news-link {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  padding: 0.75rem 1.05rem !important;
-  text-decoration: none;
-  color: inherit;
-  transition: background-color 0.2s ease;
-}
-
-.news-link:hover {
-  background-color: rgba(229, 1, 18, 0.02);
-}
-
-/* ===========================
-   日付バッジ（デスクトップ：ボックス型）
-   =========================== */
-
-.news-date-badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #E50112 0%, #b00110 100%);
-  border-radius: 6px;
-  padding: 0.38rem 0.6rem !important;
-  min-width: 105px;
-  box-shadow: 0 1px 3px rgba(229, 1, 18, 0.2);
-  flex-shrink: 0;
-}
-
-.badge-year {
-  display: none;
-}
-
-/* 日付フォント - 1.5倍サイズ */
-.whats-new-section .badge-date {
-  font-size: 0.83rem !important;
-  font-weight: 700 !important;
-  color: #fff !important;
-  line-height: 1 !important;
-  letter-spacing: 0.02em !important;
-  white-space: nowrap;
-}
-
-/* ===========================
-   コンテンツエリア
-   =========================== */
-
-.news-content {
-  flex: 1;
-  min-width: 0;
-}
-
-/* お知らせタイトル - 1.5倍サイズ */
-.whats-new-section .news-title {
-  font-size: 0.83rem !important;
-  font-weight: 600 !important;
-  color: #333 !important;
-  margin: 0 !important;
-  line-height: 1.3 !important;
-  transition: color 0.2s ease;
-}
-
-.whats-new-section .news-link:hover .news-title {
-  color: #E50112 !important;
-}
-
-/* ===========================
-   矢印アイコン
-   =========================== */
-
-.news-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.arrow-icon {
-  font-size: 1.2rem !important;
-  color: #E50112;
-  transition: transform 0.3s ease;
-}
-
-.news-link:hover .arrow-icon {
-  transform: translateX(4px);
-}
-
-
-
-/* ===========================
-   レスポンシブ対応（モバイル：超コンパクト）
-   =========================== */
 
 @media (max-width: 768px) {
-  .whats-new-section {
-    padding: 1.2rem 0 !important;
-    margin-bottom: 2rem !important;
-  }
-
-  /* 背景円を小さく */
-  .expanding-bg-1 { width: 250px; height: 250px; }
-  .expanding-bg-2 { width: 220px; height: 220px; }
-  .expanding-bg-3 { width: 200px; height: 200px; }
-
-  .whats-new-container {
-    padding: 0 1rem;
-  }
-
-  /* モバイル版タイトル - 1.5倍サイズ */
-  .whats-new-section .whats-new-title {
-    font-size: 1.13rem !important;
-  }
-
-  .title-underline {
-    width: 45px;
-  }
-
-  .news-list {
-    gap: 0.45rem;
-  }
-
-  .news-item {
-    border-radius: 6px;
-  }
-
-  .news-link {
-    flex-direction: row;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.6rem 0.75rem !important;
-  }
-
-  /* 日付バッジ：モバイルでは文字だけ表示（背景なし） */
-  .news-date-badge {
-    background: none;
-    box-shadow: none;
-    padding: 0 !important;
-    min-width: auto;
-  }
-
-  /* モバイル版日付 - 1.5倍サイズ - SHIONOGI Red */
-  .whats-new-section .badge-date {
-    font-size: 0.75rem !important;
-    color: #E50112 !important;
-    font-weight: 700 !important;
-  }
-
-  /* モバイル版お知らせタイトル - 1.5倍サイズ */
-  .whats-new-section .news-title {
-    font-size: 0.75rem !important;
-    line-height: 1.25 !important;
-  }
-
-  .news-arrow {
-    display: none;
-  }
+.whats-new-section {
+padding: 3rem 0 3.2rem;
 }
 
-@media (max-width: 480px) {
-  .whats-new-section {
-    padding: 0.9rem 0 !important;
-  }
+.whats-new-section__inner {
+padding: 0 1.15rem;
+}
 
-  /* 480px以下タイトル - 1.5倍サイズ */
-  .whats-new-section .whats-new-title {
-    font-size: 1.05rem !important;
-  }
+.whats-new-section__head {
+margin-bottom: 1.6rem;
+}
 
-  .news-link {
-    padding: 0.53rem 0.6rem !important;
-  }
+.whats-new-section__eyebrow {
+font-size: 0.76rem;
+}
 
-  /* 480px以下日付 - 1.5倍サイズ - SHIONOGI Red */
-  .whats-new-section .badge-date {
-    font-size: 0.68rem !important;
-  }
+.whats-new-section__title {
+font-size: 1.55rem;
+}
 
-  /* 480px以下お知らせタイトル - 1.5倍サイズ */
-  .whats-new-section .news-title {
-    font-size: 0.68rem !important;
-  }
+.whats-new-list {
+max-width: none;
+}
+
+.whats-new-item {
+grid-template-columns: 1fr 1.8rem;
+gap: 0.45rem 0.8rem;
+min-height: auto;
+padding: 1rem 0.2rem;
+}
+
+.whats-new-item::before {
+left: -0.75rem;
+width: 3px;
+}
+
+.whats-new-item:hover::before,
+.whats-new-item:focus::before {
+height: 56px;
+}
+
+.whats-new-item__date {
+grid-column: 1 / -1;
+font-size: 0.78rem;
+}
+
+.whats-new-item__text {
+font-size: 0.9rem;
+line-height: 1.65;
+}
+
+.whats-new-item__arrow {
+width: 1.65rem;
+height: 1.65rem;
+font-size: 0.9rem;
+}
 }

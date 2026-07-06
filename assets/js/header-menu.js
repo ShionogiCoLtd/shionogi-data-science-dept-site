@@ -1,88 +1,114 @@
-/**
- * モバイルハンバーガーメニュー制御
- * デスクトップ（768px超）では動作しない
- */
-
-(function() {
+(function () {
   'use strict';
 
-  // DOM要素の取得
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const drawer = document.getElementById('mobile-drawer');
-  const drawerCloseBtn = document.getElementById('drawer-close-btn');
-  const drawerOverlay = document.getElementById('drawer-overlay');
-  const eventsToggle = document.getElementById('events-toggle');
-  const eventsSubmenu = document.getElementById('events-submenu');
+  function initHeaderMenu() {
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const drawer = document.getElementById('mobile-drawer');
+    const drawerCloseBtn = document.getElementById('drawer-close-btn');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const eventsToggle = document.getElementById('events-toggle');
+    const eventsSubmenu = document.getElementById('events-submenu');
 
-  // メニューを開く
-  function openDrawer() {
-    drawer.classList.add('is-open');
-    hamburgerBtn.classList.add('is-active');
-    document.body.style.overflow = 'hidden'; // スクロール無効化
-    hamburgerBtn.setAttribute('aria-label', 'メニューを閉じる');
-  }
+    if (!hamburgerBtn || !drawer) {
+      return;
+    }
 
-  // メニューを閉じる
-  function closeDrawer() {
-    drawer.classList.remove('is-open');
-    hamburgerBtn.classList.remove('is-active');
-    document.body.style.overflow = ''; // スクロール有効化
-    hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
-  }
+    if (hamburgerBtn.dataset.headerMenuInitialized === 'true') {
+      return;
+    }
 
-  // Eventsサブメニューのトグル
-  function toggleEventsSubmenu() {
-    eventsToggle.classList.toggle('is-active');
-    eventsSubmenu.classList.toggle('is-open');
-  }
+    hamburgerBtn.dataset.headerMenuInitialized = 'true';
 
-  // イベントリスナーの設定
-  if (hamburgerBtn) {
-    hamburgerBtn.addEventListener('click', function() {
+    function openDrawer() {
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+
+      hamburgerBtn.classList.add('is-active');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      hamburgerBtn.setAttribute('aria-label', 'メニューを閉じる');
+
+      document.documentElement.classList.add('is-menu-open');
+      document.body.classList.add('is-menu-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+
+      hamburgerBtn.classList.remove('is-active');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
+
+      document.documentElement.classList.remove('is-menu-open');
+      document.body.classList.remove('is-menu-open');
+      document.body.style.overflow = '';
+
+      if (eventsToggle && eventsSubmenu) {
+        eventsToggle.classList.remove('is-active');
+        eventsToggle.setAttribute('aria-expanded', 'false');
+        eventsSubmenu.classList.remove('is-open');
+      }
+    }
+
+    function toggleDrawer(event) {
+      event.preventDefault();
+      event.stopPropagation();
+
       if (drawer.classList.contains('is-open')) {
         closeDrawer();
       } else {
         openDrawer();
       }
-    });
-  }
-
-  if (drawerCloseBtn) {
-    drawerCloseBtn.addEventListener('click', closeDrawer);
-  }
-
-  if (drawerOverlay) {
-    drawerOverlay.addEventListener('click', closeDrawer);
-  }
-
-  if (eventsToggle) {
-    eventsToggle.addEventListener('click', toggleEventsSubmenu);
-  }
-
-  // ESCキーでメニューを閉じる
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
-      closeDrawer();
     }
-  });
 
-  // ウィンドウリサイズ時にデスクトップサイズならメニューを閉じる
-  let resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
+    hamburgerBtn.addEventListener('click', toggleDrawer);
+
+    if (drawerCloseBtn) {
+      drawerCloseBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        closeDrawer();
+      });
+    }
+
+    if (drawerOverlay) {
+      drawerOverlay.addEventListener('click', function (event) {
+        event.preventDefault();
+        closeDrawer();
+      });
+    }
+
+    if (eventsToggle && eventsSubmenu) {
+      eventsToggle.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const isOpen = eventsSubmenu.classList.toggle('is-open');
+        eventsToggle.classList.toggle('is-active', isOpen);
+        eventsToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    drawer.querySelectorAll('.drawer-link[href], .drawer-sublink[href]').forEach(function (link) {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && drawer.classList.contains('is-open')) {
+        closeDrawer();
+      }
+    });
+
+    window.addEventListener('resize', function () {
       if (window.innerWidth > 768 && drawer.classList.contains('is-open')) {
         closeDrawer();
       }
-    }, 250);
-  });
-
-  // ドロワー内のリンクをクリックしたらメニューを閉じる
-  const drawerLinks = drawer.querySelectorAll('.drawer-link[href], .drawer-sublink[href]');
-  drawerLinks.forEach(function(link) {
-    link.addEventListener('click', function() {
-      closeDrawer();
     });
-  });
+  }
 
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeaderMenu);
+  } else {
+    initHeaderMenu();
+  }
 })();
