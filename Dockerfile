@@ -1,2 +1,7 @@
 FROM jekyll/jekyll
-COPY Gemfile.lock /srv/jekyll/Gemfile.lock
+
+WORKDIR /srv/jekyll
+
+COPY Gemfile Gemfile.lock ./
+
+RUN bundle install
